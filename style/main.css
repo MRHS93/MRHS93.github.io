@@ -116,11 +116,16 @@ h2 {
 
 
 
-p {
+p, h3 {
     font-family:            Arial, Arial, Helvetica, sans-serif;
     margin:                 0.25em auto;
     text-align:             center;    
     width:                  90%;
+}
+
+h3 {
+    font-size:              125%;
+    font-weight:            bold;
 }
 
 .school {
