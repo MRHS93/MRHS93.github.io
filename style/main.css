@@ -131,7 +131,8 @@ h1, h2 {
 
 p {
     font-family:            'Cutive',Arial, Arial, Helvetica, sans-serif;
-    margin:                 0.25em auto;
+    line-height:            100%;
+    margin:                 0.5em auto;
     text-align:             center;    
     width:                  90%;
 }
