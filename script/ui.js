@@ -7,7 +7,7 @@
     
     jq(document).ready(
         function() {
-            jq("#rsvp").live('click', function() {
+            jq("#rsvp").click( function() {
                 alert("CLICK!");
             });
         } 
