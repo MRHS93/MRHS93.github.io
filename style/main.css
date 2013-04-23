@@ -1,6 +1,6 @@
 
 /*
-#F87217
+    tag styles
 */
 
 body {
@@ -38,12 +38,19 @@ h3 {
     width:                  90%;
 }
 
-
-.classcolor {
-    color:                  #F87217;
+p {
+    font-family:            'Cutive',Arial, Arial, Helvetica, sans-serif;
+    line-height:            120%;
+    margin:                 0.25em auto;
+    text-align:             center;    
+    width:                  98%;
 }
 
-.main {
+/*
+    Border 
+*/
+
+.outerborder {
     background-color:       white;
     border:                 solid 15px #F87217;
     margin:                 1em auto;
@@ -55,16 +62,43 @@ h3 {
     width:                  85%;   
 }
 
-.inner {
+
+.innerborder {
     background-color:       white;
     border:                 solid 5px #F87217;
     margin:                 5px;
 }
 
+/*
+    Header Elements
+*/
+
 .header {
     height:                 7em;
     position:               relative;
     width:                  100%;
+}
+
+.sash {
+    background:             #F87217;
+    border:                 solid 5px white;
+    color:                  #FAFAFA;
+    font-family:            'Headland One','Arial Black', sans-serif;
+    font-size:              150%;
+    font-weight:            bold;
+    left:                   -3em;
+    letter-spacing:         2px;
+    overflow:               hidden;
+    padding:                0.25em;
+    position:               absolute;
+    text-align:             center;
+    top:                    1em;
+    -o-transform:           rotate(320deg); /* IE 9 */
+    -ms-transform:          rotate(320deg); /* IE 9 */
+    -moz-transform:         rotate(320deg); /* IE 9 */
+    -webkit-transform:      rotate(320deg); /* Safari and Chrome */    
+    transform:              rotate(320deg);
+    width:                  10em;
 }
 
 .year, .classof {
@@ -93,6 +127,11 @@ h3 {
     z-index:                9999;
 }
 
+/*
+    Body of invitation
+*/
+
+
 .invite {
     clear:                  both;
     margin:                 0 auto;
@@ -100,50 +139,8 @@ h3 {
     width:                  75%;
 }
 
-.sash {
-    background-color:       #F87217;
-    border:                 solid 5px white;
-    color:                  #FAFAFA;
-    font-family:            'Headland One','Arial Black', sans-serif;
-    font-size:              150%;
-    font-weight:            bold;
-    letter-spacing:         2px;
-    overflow:               hidden;
-    padding:                0.25em;
-    position:               absolute;
-    text-align:             center;
-    top:                    1em;
-    left:                   -3em;
-    width:                  10em;
-    -o-transform:           rotate(320deg); /* IE 9 */
-    -ms-transform:          rotate(320deg); /* IE 9 */
-    -moz-transform:         rotate(320deg); /* IE 9 */
-    -webkit-transform:      rotate(320deg); /* Safari and Chrome */    
-    transform:              rotate(320deg);
-}
-
 .orange {
     color:                  #F87217;
-}
-
-
-
-
-p {
-    font-family:            'Cutive',Arial, Arial, Helvetica, sans-serif;
-    line-height:            120%;
-    margin:                 0.25em auto;
-    text-align:             center;    
-    width:                  98%;
-}
-
-
-.school {
-    color:                  #2b2b2b;
-    font-family:            'Great Vibes', Helvetica, sans-serif;
-    font-size:              300%;
-    font-weight:            700;
-    margin:                 0.5em 0 0 0;
 }
 
 .rsvp {
@@ -154,12 +151,12 @@ p {
     background:             -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #F87217), color-stop(1, #FA9C5D) );
 	background:             -moz-linear-gradient( center top, #F87217 5%, #FA9C5D 100% );    
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#F87217', endColorstr='#FA9C5D');
-	-moz-border-radius:     4px;
+	border:                 2px solid #DF6715;
+    -moz-border-radius:     4px;
 	-webkit-border-radius:  4px;
 	border-radius:          4px;
-	border:                 2px solid #DF6715;
-	display:                inline-block;
 	color:                  #ffffff;
+    display:                inline-block;
 	font-family:            'Headland One','Arial Black', sans-serif;
 	font-size:              120%;
 	font-weight:            bold;
@@ -176,9 +173,16 @@ p {
     background:             #fb9e25;
 	background:             -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
 	background:             -moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+    border:                 2px solid #E28E21;
     cursor:                 hand; 
     cursor:                 pointer;
-    border:                 2px solid #E28E21;
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
 }
 
+.school {
+    color:                  #2b2b2b;
+    font-family:            'Great Vibes', Helvetica, sans-serif;
+    font-size:              300%;
+    font-weight:            700;
+    margin:                 0.5em 0 0 0;
+}
