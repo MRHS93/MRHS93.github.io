@@ -3,12 +3,17 @@
  var jq;
  
  if (jQuery) {
-    jq = jQuery;
+    //jq = jQuery;
     
-    jq(document).ready(
+    $(document).ready(
         function() {
-            jq("#rsvp").click( function() {
-                alert("CLICK!");
+            $("#rsvp").click( function() {
+                //alert("CLICK!");
+                $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
+                
+                $("#bgOverlay").click( function() {
+                    $("#bgOverlay").remove();
+                })
             });
         } 
     );
