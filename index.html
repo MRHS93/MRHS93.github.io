@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <script type="text/javascript">
-      var WebFontConfig = {
-        google: { families: [  'Great+Vibes::latin', 'Headland+One::latin', 'Ovo::latin', 'Copse::latin', 'Tangerine:700:latin', 'Squada+One::latin', 'Arizonia::latin', 'Cutive::latin', 'Fjalla+One::latin'  ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })(); </script>    
+        <script type="text/javascript">
+            var WebFontConfig = {
+            google: { families: [  'Great+Vibes::latin', 'Headland+One::latin', 'Ovo::latin', 'Copse::latin', 'Tangerine:700:latin', 'Squada+One::latin', 'Arizonia::latin', 'Cutive::latin', 'Fjalla+One::latin'  ] }
+            };
+            (function() {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })(); </script>    
     
         <title>Mineral Ridge High School 1993 Class Reunion </title>
         
-        <!--
-        <link href='http://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Tangerine:700' rel='stylesheet' type='text/css'>
-        <link href="http://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" type="text/css">
-        -->
-        
         <link rel="stylesheet" type="text/css" href="style/reset.css">
         <link rel="stylesheet" type="text/css" href="style/main.css">
+        
+        <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(unescape("%3Cscript src='/script/jquery-1.9.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+        }
+        </script>        
     </head>
     <body>
         <div class="main">
@@ -57,7 +58,8 @@
                     <p>
                         Bring the family 
                     </p>
-    
+                    
+                    <button type="button" class="rsvp">RSVP</button>
                 </div>
             
             </div>
