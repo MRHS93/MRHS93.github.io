@@ -5,13 +5,13 @@
 
 body {
     color:                  #000;   
-    font-family:            'Squada One','Arial Black', Gadget, sans-serif;    
+    font-family:            Cutive,'Arial Black', sans-serif;    
     font-size:              12pt;
 }
 
 h1, h2 {
     color:                  #333;
-    font-family:            'Headland One','Arial Black', Gadget, sans-serif;
+    font-family:            'Headland One','Arial Black', sans-serif;
     font-size:              200%;    
     font-weight:            bold;
     line-height:            120%;
@@ -38,11 +38,9 @@ h3 {
     width:                  90%;
 }
 
-h1, h2 {
-}
 
 .classcolor {
-    color:             #F87217;
+    color:                  #F87217;
 }
 
 .main {
@@ -70,7 +68,7 @@ h1, h2 {
 }
 
 .year, .classof {
-    font-family:            'Fjalla One','Arial Black', Gadget, sans-serif;
+    font-family:            'Headland One','Arial Black', sans-serif;
 }
 
 .year {
@@ -86,9 +84,9 @@ h1, h2 {
 .classof {
     color:                  #AAA;
     float:                  right;
-    font-size:              300%;
+    font-size:              250%;
     font-weight:            900;
-    margin:                 0.7em 2.2em 0 0;
+    margin:                 1.6em 3.2em 0 0;
     position:               absolute;
     right:                  0;
     top:                    0;
@@ -105,8 +103,8 @@ h1, h2 {
 .sash {
     background-color:       #F87217;
     border:                 solid 5px white;
-    color:                  #EEE;
-    font-family:            'Fjalla One','Arial Black', Gadget, sans-serif;
+    color:                  #FAFAFA;
+    font-family:            'Headland One','Arial Black', sans-serif;
     font-size:              150%;
     font-weight:            bold;
     letter-spacing:         2px;
@@ -117,11 +115,11 @@ h1, h2 {
     top:                    1em;
     left:                   -3em;
     width:                  10em;
-    -o-transform: rotate(320deg); /* IE 9 */
-    -ms-transform: rotate(320deg); /* IE 9 */
-    -moz-transform: rotate(320deg); /* IE 9 */
-    -webkit-transform: rotate(320deg); /* Safari and Chrome */    
-    transform: rotate(320deg);
+    -o-transform:           rotate(320deg); /* IE 9 */
+    -ms-transform:          rotate(320deg); /* IE 9 */
+    -moz-transform:         rotate(320deg); /* IE 9 */
+    -webkit-transform:      rotate(320deg); /* Safari and Chrome */    
+    transform:              rotate(320deg);
 }
 
 .orange {
@@ -162,7 +160,7 @@ p {
 	border:                 2px solid #DF6715;
 	display:                inline-block;
 	color:                  #ffffff;
-	font-family:            'Fjalla One','Arial Black', Gadget, sans-serif;
+	font-family:            'Headland One','Arial Black', sans-serif;
 	font-size:              120%;
 	font-weight:            bold;
     letter-spacing:         2px;
