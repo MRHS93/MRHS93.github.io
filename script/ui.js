@@ -5,13 +5,14 @@
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
     //$("rsvpOverlay").show();
     //$("#bgOverlay").fadeIn(200);
+    var hTot = $(window).height();
     
     $("#rsvpForm,#bgOverlay").fadeIn(400,
         function() {
             $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1,margin:"50% auto",top:"-3px"},400,
                 function() {
                     $("#rsvpForm").animate({width:"50%",left:"25%",borderWidth:"1px"},400,
-                        function() { $("#rsvpForm").animate({height:"50%",borderWidth:"3px",margin:"25% auto"},400,
+                        function() { $("#rsvpForm").animate({height:0.5*hTot,borderWidth:"3px",margin:"25% auto"},400,
                             function(){ $("#rsvpContent").fadeIn(200) }
                         )}
                     );
