@@ -1,21 +1,17 @@
  
  
-var jq;
-var rsvp ;
-var overlay;
  
  function rsvpIn() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
     //$("rsvpOverlay").show();
     //$("#bgOverlay").fadeIn(200);
-    overlay = $("rsvpOverlay");
     
     $("#rsvpForm,#bgOverlay").fadeIn(400,
         function() {
-            rsvp.animate({height:"3px",width:"3px",opacity:1,margin:"50% auto",top:"-3px"},400,
+            $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1,margin:"50% auto",top:"-3px"},400,
                 function() {
-                    rsvp.animate({width:"50%",left:"25%",borderWidth:"1px"},400,
-                        function() { rsvp.animate({height:"50%",borderWidth:"3px",margin:"25% auto"},400,
+                    $("#rsvpForm").animate({width:"50%",left:"25%",borderWidth:"1px"},400,
+                        function() { $("#rsvpForm").animate({height:"50%",borderWidth:"3px",margin:"25% auto"},400,
                             function(){ $("#rsvpContent").fadeIn(200) }
                         )}
                     );
@@ -26,7 +22,7 @@ var overlay;
 
  }
  
-  function rsvpOut() {
+function rsvpOut() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
     //$("rsvpOverlay").show();
     //$("#bgOverlay").fadeIn(200);
@@ -34,9 +30,9 @@ var overlay;
     
     $("#rsvpContent").fadeOut(200,
         function() {
-            rsvp.animate({height:"3px",margin:"50% auto",top:"-3px",borderWidth:"0"},400,
+            $("#rsvpForm").animate({height:"3px",margin:"50% auto",top:"-3px",borderWidth:"0"},400,
                 function() {
-                    rsvp.animate({width:"3px",left:"50%"},400,
+                    $("#rsvpForm").animate({width:"3px",left:"50%"},400,
                         function() { $("#bgOverlay,#rsvpForm").fadeOut(200) }
                     );
                 }
@@ -53,9 +49,12 @@ var overlay;
         function() {
             //alert("ready");
             //rsvp = $("#rsvpForm");
+            if (!$("#rsvpForm")) {
+                alert("nothing!");
+            }
             $("#rsvpForm").click( function() {
                 alert("CLICK!");
-                rsvpIn();
+                //rsvpIn();
             });
             
             $("#rsvpExit").click(
