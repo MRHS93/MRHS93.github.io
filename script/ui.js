@@ -48,20 +48,19 @@ function rsvpOut() {
     $(document).ready(
         function() {
             //alert("ready");
-            //rsvp = $("#rsvpForm");
-            if (!$("#rsvpForm")) {
-                alert("nothing!");
-            }
-            $("#rsvpForm").click( function() {
-                alert("CLICK!");
-                //rsvpIn();
+
+            $("#rsvp").click( function() {
+                //alert("CLICK!");
+                rsvpIn();
             });
+            
             
             $("#rsvpExit").click(
                 function() {
                     rsvpOut();
                 }    
             );
+            
         } 
     );
  }
