@@ -19,8 +19,8 @@
         function() {
             $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1},200,
                 function() {
-                    $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"},400,
-                        function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px"},400,
+                    $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"},300,
+                        function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px"},300,
                             function(){ $("#rsvpContent").fadeIn(200) }
                         )}
                     );
