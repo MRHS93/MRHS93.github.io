@@ -210,9 +210,9 @@ p {
     -webkit-border-radius:  12px;
 	border-radius:          12px;
     color:                  #333;
-    height:                 50%;    
+    height:                 200px;    
     margin:                 25% auto 0 auto;
-    width:                  50%;
+    width:                  350px;
 }
 
 #rsvpOverlay {
