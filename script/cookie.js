@@ -40,7 +40,7 @@ function saveRSVPcookie(pName,pEmail,pRsvp1,pRsvp2){
 
 function saveRSVPcookie(frm){
     var data = objectify(frm);
-    console.log(data);
+    //console.log(data);
     createCookie(cname,data,365);
 }
 
@@ -56,7 +56,7 @@ function objectify(frm) {
     
     var paramObj = {};
     var data = frm.serializeArray();
-    console.log(data);
+    //console.log(data);
     $.each(data, function(_, kv) {
         paramObj[kv.name] = kv.value;
     });
@@ -74,11 +74,11 @@ function fillForm(frm) {
     var data = getSavedRSVPdata();
     console.log(data);
     if (data) {
-        /*
+        
         for (var prop in data) {
             $("#"+prop).val(data[prop]);
         }
-        */
+        
     }
 }
 
