@@ -9,11 +9,11 @@
     
     $("#rsvpForm,#bgOverlay").fadeIn(400,
         function() {
-            $("#rsvpForm").top(hTot/2.0 - 1.5);
+            $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px");
             $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1},400,
                 function() {
                     $("#rsvpForm").animate({width:"50%",left:"25%",borderWidth:"1px"},400,
-                        function() { $("#rsvpForm").animate({height:0.5*hTot,top:0.25*hTot,borderWidth:"3px",margin:"25% auto"},400,
+                        function() { $("#rsvpForm").animate({height:0.5*hTot,top:0.25*hTot+"px",borderWidth:"3px",margin:"25% auto"},400,
                             function(){ $("#rsvpContent").fadeIn(200) }
                         )}
                     );
