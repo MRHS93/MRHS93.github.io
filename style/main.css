@@ -205,53 +205,42 @@ p {
 
 #rsvpForm {
     background:             #EEE;
-    border:                 solid 5px #333;
+    border:                 solid 0px #333;
     -moz-border-radius:     12px;
     -webkit-border-radius:  12px;
 	border-radius:          12px;
     color:                  black;
-    height:                 50%;    
-    margin:                 25% auto 25% auto;
+    display:                none;
+    height:                 0;    
+    margin:                 50% auto;
+    opacity:                1.0;
+    top:                    0;
+    left:                   50%;
     position:               absolute;
-    width:                  50%;
+    width:                  0;
     z-index:                21;
 }
 
 #rsvpOverlay {
-    background:             white;
+    background:             none;
     display:                none;
-    height:                 100%;
-    margin:                 25% auto;
+    height:                 50%;
+    left:                   25%;
+    margin:                 0 auto;
     overflow:               hidden;
     position:               absolute;
-    width:                  3100%;
+    top:                    25%;
+    width:                  50%;
     z-index:                20;
 }
 
-#topDiv{
-    width:100%;
-    height:50%;
-    background:black;
-    position:absolute;
-    top: 0;
-    z-index:                22;
-}
-#bottomDiv{
-    width:100%;
-    height:50%;
-    background:black;
-    position:absolute;
-    bottom: 0;
-    z-index:                22;
-}
-#centerDiv{
-    position:absolute;
-    height: 1px;
-    top: 50%;
-    width:100%;
-    background: white;
-    display:none;
-    z-index:1;
+#rsvpExit {
+    color:                  #333;
+    float:                  right;
+    font-weight:            bold;
+    margin:                 0.5em;
+    text-decoration:        none;
+        
 }
 
 

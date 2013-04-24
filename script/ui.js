@@ -1,63 +1,67 @@
  
  
  var jq;
+var rsvp ;
+var overlay;
  
  function rsvpIn() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
-    $("#bgOverlay").fadeIn(200, function() {
-        $('#topDiv').animate({
-            //51% for chrome
-            height: "0%"
-            ,opacity: 1
-        }, 400);
-        $('#bottomDiv').animate({
-            //51% for chrome
-            height: "0%"
-            ,opacity: 1
-        }, 400 );
-    });
+    //$("rsvpOverlay").show();
+    //$("#bgOverlay").fadeIn(200);
+    overlay = $("rsvpOverlay");
+    
+    $("#rsvpForm,#bgOverlay").fadeIn(400,
+        function() {
+            rsvp.animate({height:"3px",width:"3px",opacity:1,margin:"50% auto",top:"-3px"},400,
+                function() {
+                    rsvp.animate({width:"50%",left:"25%",borderWidth:"1px"},400,
+                        function() { rsvp.animate({height:"50%",borderWidth:"3px",margin:"25% auto"},400,
+                            function(){ $("#rsvpContent").fadeIn(200) }
+                        )}
+                    );
+                }
+            );
+        }
+    );
+
+ }
+ 
+  function rsvpOut() {
+    $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
+    //$("rsvpOverlay").show();
+    //$("#bgOverlay").fadeIn(200);
+    
+    
+    $("#rsvpContent").fadeOut(200,
+        function() {
+            rsvp.animate({height:"3px",margin:"50% auto",top:"-3px",borderWidth:"0"},400,
+                function() {
+                    rsvp.animate({width:"3px",left:"50%"},400,
+                        function() { $("#bgOverlay,#rsvpForm").fadeOut(200) }
+                    );
+                }
+            );
+        }
+    );
+
  }
  
  if (jQuery) {
-    //jq = jQuery;
+    
     
     $(document).ready(
         function() {
-            $("#rsvp").click( function() {
+            rsvp = $("#rsvpForm");
+            rsvp.click( function() {
                 //alert("CLICK!");
-                
-                
                 rsvpIn();
-            
-            /*
-                $("#bgOverlay").fadeIn(200, function() {
-                    $("#bgOverlay, #rsvpOverlay").click( function() {
-                        $("#rsvpOverlay").animate({height:"1%",left:0}, 2000,
-                            function() {
-                                $("#rsvpOverlay").animate({width:"0%", opacity:0, top:0}, 500,
-                                    function() { $("#rsvpOverlay").hide(
-                                        function() {
-                                            $("#bgOverlay").fadeOut(500).remove();    
-                                        }    
-                                    ); 
-                                });
-                            }
-                        );
-                        
-                        
-                        
-                    });
-                    
-                    $("#rsvpOverlay").show().css("height","2px").animate({width:"100%",left:0}, 1000,
-                        function() {
-                            $("#rsvpOverlay").animate({height:"100%", opacity:1, top:0}, 500);
-                        }
-                    );
-                });
-            */
-                    
-                
             });
+            
+            $("#rsvpExit").click(
+                function() {
+                    rsvpOut();
+                }    
+            );
         } 
     );
  }
