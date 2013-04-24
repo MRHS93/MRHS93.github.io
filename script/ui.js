@@ -30,7 +30,7 @@
         }
     );
 
- }
+ } 
  
 function rsvpOut() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
