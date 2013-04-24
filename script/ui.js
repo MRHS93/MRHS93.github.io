@@ -66,7 +66,9 @@ function rsvpOut() {
     );
     
     $("#rsvp").submit(
-        function() {
+        function(e) {
+            e.preventDefault();
+            
             var frm = $("#rsvpForm");
             if (frm) {
                 saveRSVPcookie();
@@ -74,7 +76,9 @@ function rsvpOut() {
             
             return false;
         }
-    ).change(
+    );
+    
+    $("#rsvp").change(
         function() {
             
         }
