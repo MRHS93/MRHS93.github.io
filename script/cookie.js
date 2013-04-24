@@ -55,7 +55,9 @@ function objectify(frm) {
     */
     
     var paramObj = {};
-    $.each(frm.serializeArray(), function(_, kv) {
+    var data = frm.serializeArray();
+    console.log(data);
+    $.each(data, function(_, kv) {
         paramObj[kv.name] = kv.value;
     });
 
