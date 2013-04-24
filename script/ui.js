@@ -69,9 +69,9 @@ function rsvpOut() {
         function(e) {
             e.preventDefault();
             
-            var frm = $("#rsvpForm");
+            var frm = $("#rsvpFormData");
             if (frm) {
-                saveRSVPcookie();
+                saveRSVPcookie(frm);
             }            
             
             return false;
@@ -90,7 +90,7 @@ function rsvpOut() {
     $(document).ready(
         function() {
             setupEventHandlers();
-            var frm = $("#rsvpForm");
+            var frm = $("#rsvpFormData");
             if (frm) {
                 //fillForm(frm);
             }

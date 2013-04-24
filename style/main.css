@@ -238,8 +238,9 @@ p {
 
 #rsvpExit {
     color:                  #333;
+    float:                  right;
     font-weight:            bold;
-    margin:                 0.5em;
+    margin:                 0.5em 1em;
     right:                  0;
     text-decoration:        none;
     top:                    0;        
