@@ -1,5 +1,8 @@
  
- 
+ function min(a,b) {
+    if (a > b) return a;
+    else return b;
+ }
  
  function rsvpIn() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
@@ -7,16 +10,18 @@
     //$("#bgOverlay").fadeIn(200);
     var hTot = $(window).height();
     var wTot = $(window).width();
-    var padT = (hTot*0.5 > 300) ? (hTot - 300)/2 : 0.25 * hTot;
-    var padW = (wTot*0.5 > 400) ? (wTot - 400)/2 : 0.25 * wTot;
+    var w = min(400,wTot * 0.5);
+    var h = min(300,hTot * 0.5);
+    var padT = (hTot - h)/2.0;
+    var padW = (wTot - w)/2.0;
     
     $("#rsvpForm,#bgOverlay").fadeIn(400,
         function() {
             $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px");
             $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1},400,
                 function() {
-                    $("#rsvpForm").animate({width:2*padW+"px",left:padW+"px",borderWidth:"1px"},400,
-                        function() { $("#rsvpForm").animate({height:2*padT+"px",top:padT+"px",borderWidth:"3px"},400,
+                    $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"},400,
+                        function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px"},400,
                             function(){ $("#rsvpContent").fadeIn(200) }
                         )}
                     );
