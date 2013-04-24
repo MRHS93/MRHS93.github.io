@@ -2,6 +2,28 @@
  
  var jq;
  
+ function rsvpIn() {
+    $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
+    $("#bgOverlay").fadeIn(200, function() {
+        $('#topDiv').animate({
+            //51% for chrome
+            height: "50%"
+            ,opacity: 1
+        }, 400);
+        $('#bottomDiv').animate({
+            //51% for chrome
+            height: "50%"
+            ,opacity: 1
+        }, 400, function(){
+                $('#rsvpOverlay').css({display: "block"}).animate({
+                        width: "0%",
+                        left: "50%"
+                     }, 300);
+                }
+        );
+    });
+ }
+ 
  if (jQuery) {
     //jq = jQuery;
     
@@ -9,8 +31,11 @@
         function() {
             $("#rsvp").click( function() {
                 //alert("CLICK!");
-                $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
                 
+                
+                rsvpIn();
+            
+            /*
                 $("#bgOverlay").fadeIn(200, function() {
                     $("#bgOverlay, #rsvpOverlay").click( function() {
                         $("#rsvpOverlay").animate({height:"1%",left:0}, 2000,
@@ -35,7 +60,7 @@
                         }
                     );
                 });
-            
+            */
                     
                 
             });
