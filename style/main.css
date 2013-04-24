@@ -238,17 +238,21 @@ p {
 
 #rsvpExit {
     color:                  #333;
-    float:                  right;
     font-weight:            bold;
     margin:                 0.5em;
+    right:                  0;
     text-decoration:        none;
-        
+    top:                    0;        
 }
 
 #rsvpContent {
     display:                none;
 }
 
+#rsvpFormData {
+    float:                  left;
+    margin:                 0.5em;
+}
 
 
 
