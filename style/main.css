@@ -216,6 +216,8 @@ p {
     opacity:                1.0;
     top:                    0;
     left:                   50%;
+    max-height:             300px;
+    max-width:              400px;
     position:               absolute;
     width:                  0;
     z-index:                21;

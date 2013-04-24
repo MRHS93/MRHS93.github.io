@@ -6,6 +6,9 @@
     //$("rsvpOverlay").show();
     //$("#bgOverlay").fadeIn(200);
     var hTot = $(window).height();
+    var wTot = $(window).width();
+    var padT = (hTot*0.5 > 300) ? (hTot - 300)/2 : 0.25 * hTot;
+    var padW = (wTot*0.5 > 400) ? (wTot - 400)/2 : 0.25 * wTot;
     
     $("#rsvpForm,#bgOverlay").fadeIn(400,
         function() {
@@ -13,7 +16,7 @@
             $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1},400,
                 function() {
                     $("#rsvpForm").animate({width:"50%",left:"25%",borderWidth:"1px"},400,
-                        function() { $("#rsvpForm").animate({height:0.5*hTot,top:0.25*hTot+"px",borderWidth:"3px"},400,
+                        function() { $("#rsvpForm").animate({height:"50%",top:padT+"px",borderWidth:"3px"},400,
                             function(){ $("#rsvpContent").fadeIn(200) }
                         )}
                     );
