@@ -209,21 +209,22 @@ p {
     -moz-border-radius:     12px;
     -webkit-border-radius:  12px;
 	border-radius:          12px;
-    color:                  #333;
-    height:                 200px;    
+    color:                  black;
+    height:                 2px;    
     margin:                 25% auto 0 auto;
-    width:                  350px;
+    position:               absolute;
+    width:                  100%;
 }
 
 #rsvpOverlay {
     background:             white;
     display:                none;
-    height:                 1px;
+    height:                 200px;
     left:                   50%;
     overflow:               hidden;
     position:               absolute;
     top:                    50%;
-    width:                  0;
+    width:                  300px;
     z-index:                20;
 }
 
