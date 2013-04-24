@@ -1,6 +1,6 @@
  
  
- var jq;
+var jq;
 var rsvp ;
 var overlay;
  
@@ -51,9 +51,10 @@ var overlay;
     
     $(document).ready(
         function() {
-            rsvp = $("#rsvpForm");
-            rsvp.click( function() {
-                //alert("CLICK!");
+            //alert("ready");
+            //rsvp = $("#rsvpForm");
+            $("#rsvpForm").click( function() {
+                alert("CLICK!");
                 rsvpIn();
             });
             
