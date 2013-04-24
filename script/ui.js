@@ -14,7 +14,7 @@
     var h = min(300,hTot * 0.5);
     var padT = (hTot - h)/2.0;
     var padW = (wTot - w)/2.0;
-    
+    alert(padW);
     $("#rsvpForm,#bgOverlay").fadeIn(400,
         function() {
             $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px");
