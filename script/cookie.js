@@ -45,14 +45,22 @@ function saveRSVPcookie(frm){
 }
 
 function objectify(frm) {
-    var fields = {};
+    //var fields = {};
+    /*
     frm.find(":input").each(
         function() {
             fields[this.name] = $(this).val();
         }  
     );
+    */
     
-    return fields;
+    var paramObj = {};
+    $.each($('#myForm').serializeArray(), function(_, kv) {
+        paramObj[kv.name] = kv.value;
+    });
+
+    return paramObj;
+    
 }
 
 function getSavedRSVPdata() {
