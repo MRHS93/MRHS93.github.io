@@ -7,20 +7,14 @@
     $("#bgOverlay").fadeIn(200, function() {
         $('#topDiv').animate({
             //51% for chrome
-            height: "50%"
+            height: "0%"
             ,opacity: 1
         }, 400);
         $('#bottomDiv').animate({
             //51% for chrome
-            height: "50%"
+            height: "0%"
             ,opacity: 1
-        }, 400, function(){
-                $('#rsvpOverlay').css({display: "block"}).animate({
-                        width: "0%",
-                        left: "50%"
-                     }, 300);
-                }
-        );
+        }, 400 );
     });
  }
  
