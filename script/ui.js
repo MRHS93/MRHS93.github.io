@@ -36,14 +36,19 @@ function rsvpOut() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
     //$("rsvpOverlay").show();
     //$("#bgOverlay").fadeIn(200);
-    
+    var hTot = $(window).height();
+    var wTot = $(window).width();
+    var w = min(400,wTot * 0.5);
+    var h = min(300,hTot * 0.5);
+    var padT = (hTot - h)/2.0;
+    var padW = (wTot - w)/2.0;
     
     $("#rsvpContent").fadeOut(200,
         function() {
-            $("#rsvpForm").animate({height:"3px",margin:"50% auto",top:"-3px",borderWidth:"0"},400,
+            $("#rsvpForm").animate({height:"3px",top:(hTot - 1.5) +"px",borderWidth:"0"},400,
                 function() {
-                    $("#rsvpForm").animate({width:"3px",left:"50%"},400,
-                        function() { $("#bgOverlay,#rsvpForm").fadeOut(200) }
+                    $("#rsvpForm").animate({width:"3px",left:(wTot-1.5)+"px"},400,
+                        function() { $("#bgOverlay,#rsvpForm").fadeOut(200 , function(){$("#bgOverlay").remove();}) }
                     );
                 }
             );
