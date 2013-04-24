@@ -6,8 +6,6 @@
  
  function rsvpIn() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
-    //$("rsvpOverlay").show();
-    //$("#bgOverlay").fadeIn(200);
     var hTot = $(window).height();
     var wTot = $(window).width();
     var w = min(400,wTot * 0.5);
@@ -17,9 +15,9 @@
     
     $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px").css("left",wTot/2.0 - 1.5+"px");
 
-    $("#rsvpForm,#bgOverlay").fadeIn(400,
+    $("#rsvpForm,#bgOverlay").fadeIn(200,
         function() {
-            $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1},400,
+            $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1},200,
                 function() {
                     $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"},400,
                         function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px"},400,
@@ -35,8 +33,6 @@
  
 function rsvpOut() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
-    //$("rsvpOverlay").show();
-    //$("#bgOverlay").fadeIn(200);
     var hTot = $(window).height();
     var wTot = $(window).width();
     var w = min(400,wTot * 0.5);
@@ -55,28 +51,45 @@ function rsvpOut() {
             );
         }
     );
-
  }
  
+ function setupEventHandlers(){
+    $("#rsvp").click( function() {
+        rsvpIn();
+    });
+    
+    
+    $("#rsvpExit").click(
+        function() {
+            rsvpOut();
+        }    
+    );
+    
+    $("#rsvp").submit(
+        function() {
+            var frm = $("#rsvpForm");
+            if (frm) {
+                saveRSVPcookie();
+            }            
+            
+            return false;
+        }
+    ).change(
+        function() {
+            
+        }
+    );
+ }
+ 
+ 
  if (jQuery) {
-    
-    
     $(document).ready(
         function() {
-            //alert("ready");
-
-            $("#rsvp").click( function() {
-                //alert("CLICK!");
-                rsvpIn();
-            });
-            
-            
-            $("#rsvpExit").click(
-                function() {
-                    rsvpOut();
-                }    
-            );
-            
+            setupEventHandlers();
+            var frm = $("#rsvpForm");
+            if (frm) {
+                //fillForm(frm);
+            }
         } 
     );
  }
