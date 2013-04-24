@@ -65,7 +65,7 @@ function rsvpOut() {
         }    
     );
     
-    $("#rsvp").submit(
+    $("#rsvpFormData").submit(
         function(e) {
             e.preventDefault();
             
