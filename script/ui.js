@@ -14,7 +14,7 @@
     var h = min(300,hTot * 0.5);
     var padT = (hTot - h)/2.0;
     var padW = (wTot - w)/2.0;
-    alert(padW);
+    
     $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px").css("left",wTot/2.0 - 1.5+"px");
 
     $("#rsvpForm,#bgOverlay").fadeIn(400,
@@ -46,9 +46,9 @@ function rsvpOut() {
     
     $("#rsvpContent").fadeOut(200,
         function() {
-            $("#rsvpForm").animate({height:"3px",top:(hTot - 1.5) +"px",borderWidth:"0"},400,
+            $("#rsvpForm").animate({height:"3px",top:(hTot/2.0 - 1.5) +"px",borderWidth:"0"},400,
                 function() {
-                    $("#rsvpForm").animate({width:"3px",left:(wTot-1.5)+"px"},400,
+                    $("#rsvpForm").animate({width:"3px",left:(wTot/2.0-1.5)+"px"},400,
                         function() { $("#bgOverlay,#rsvpForm").fadeOut(200 , function(){$("#bgOverlay").remove();}) }
                     );
                 }
