@@ -42,9 +42,9 @@ function rsvpOut() {
     
     $("#rsvpContent").fadeOut(200,
         function() {
-            $("#rsvpForm").animate({height:"3px",top:(hTot/2.0 - 1.5) +"px",borderWidth:"0"},400,
+            $("#rsvpForm").animate({height:"3px",top:(hTot/2.0 - 1.5) +"px",borderWidth:"0"},300,
                 function() {
-                    $("#rsvpForm").animate({width:"3px",left:(wTot/2.0-1.5)+"px"},400,
+                    $("#rsvpForm").animate({width:"3px",left:(wTot/2.0-1.5)+"px"},300,
                         function() { $("#bgOverlay,#rsvpForm").fadeOut(200 , function(){$("#bgOverlay").remove();}) }
                     );
                 }
