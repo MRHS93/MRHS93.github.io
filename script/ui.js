@@ -15,8 +15,8 @@
             $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px");
             $("#rsvpForm").animate({height:"3px",width:"3px",opacity:1},400,
                 function() {
-                    $("#rsvpForm").animate({width:"50%",left:padW+"px",borderWidth:"1px"},400,
-                        function() { $("#rsvpForm").animate({height:"50%",top:padT+"px",borderWidth:"3px"},400,
+                    $("#rsvpForm").animate({width:2*padW+"px",left:padW+"px",borderWidth:"1px"},400,
+                        function() { $("#rsvpForm").animate({height:2*padT+"px",top:padT+"px",borderWidth:"3px"},400,
                             function(){ $("#rsvpContent").fadeIn(200) }
                         )}
                     );
