@@ -54,7 +54,7 @@ $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDu
                 function() {
                     $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"},2 * SCL,  'speedIn',
                         function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px"},SCL,  'speedIn',
-                            function(){ $("#rsvpContent").fadeIn(0.5 * SCL,  'speedIn') , fillForm( ); }
+                            function(){ $("#rsvpContent").fadeIn(0.5 * SCL,  'speedIn' , getFormDataAjax())  }
                         )}
                     );
                 }
@@ -62,7 +62,7 @@ $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDu
     //    }
     //);
     
-    getFormDataAjax();
+    
 
  } 
  
