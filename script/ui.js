@@ -47,19 +47,19 @@ $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDu
     
     $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px").css("left",wTot/2.0 - 1.5+"px");
 
-    $("#rsvpForm,#bgOverlay").fadeIn(2 * SCL, 'speedIn',
-        function() {
-            $("#rsvpForm").animate({height:"3px",width:"3px"},SCL,  'speedIn',
+    $("#rsvpForm,#bgOverlay").fadeIn(0.5 * SCL, 'speedIn');
+    //    function() {
+            $("#rsvpForm").animate({height:"3px",width:"3px"},0.5 * SCL,  'speedIn',
                 function() {
                     $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"},2 * SCL,  'speedIn',
                         function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px"},SCL,  'speedIn',
-                            function(){ $("#rsvpContent").fadeIn(SCL,  'speedIn') , fillForm( ); }
+                            function(){ $("#rsvpContent").fadeIn(0.5 * SCL,  'speedIn') , fillForm( ); }
                         )}
                     );
                 }
             );
-        }
-    );
+    //    }
+    //);
 
  } 
  
