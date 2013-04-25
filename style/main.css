@@ -260,5 +260,13 @@ label {
     clear:                  left;
 }
 
+.spacer {
+    clear:                  both;
+    height:                 1em;
+    width:                  100%;
+}
 
+.clear {
+    clear:                  both;
+}
 
