@@ -38,10 +38,15 @@ function saveRSVPcookie(pName,pEmail,pRsvp1,pRsvp2){
 }
 */
 
-function saveRSVPcookie(frm){
+function saveRSVPcookie(){
     var data = objectify(frm);
     //console.log(data);
-    createCookie(cname,data,365);
+    //createCookie(cname,data,365);
+    $("#rsvpFormData:input").each(
+        function() {
+            createCookie(this.name,this.value,365);
+        }    
+    );
 }
 
 function objectify(frm) {
@@ -71,6 +76,12 @@ function getSavedRSVPdata() {
 }
 
 function fillForm(frm) {
+    $("#rsvpFormData:input").each(
+        function() {
+            createCookie(this.name,this.value,365);
+        }    
+    );    
+    /*
     var data = getSavedRSVPdata();
     console.log(data);
     if (data) {
@@ -80,6 +91,7 @@ function fillForm(frm) {
         }
         
     }
+    */
 }
 
 
