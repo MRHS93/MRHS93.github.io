@@ -140,6 +140,15 @@ function rsvpOut() {
      }
 }
 
+ function getFormVal(pName) {
+    var f = $("#"+pName);
+    if (f){
+        return f.val();
+    } else {
+        return 0;
+    }
+}
+
 function readGetData(){
     var $_GET = {};
     
@@ -158,22 +167,25 @@ function readGetData(){
 }
  
  function getFormDataAjax(){
-    $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','firstname=carl&lastname=tracy&email=carltracy@gmail.com&reply1=1&reply2=1',
-        function(res) {
-            //console.log("got reply");
-            //console.log(res);
-            var status = res.status;
-            
-            if (status === "ok") {
-                var n1 = res.firstname; setFormValueWithVal('firstname',n1);
-                var n2 = res.lastname; setFormValueWithVal('lastname',n2);
-                var em = res.email; setFormValueWithVal('email',em);
-                //var r1 = res.reply1; setFormValueWithVal('',r1);
-                //var r2 = res.reply2; setFormValueWithVal('',r2);
+    var email = getFormVal("email");
+    if (email) {
+        $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=0&email=',
+            function(res) {
+                //console.log("got reply");
+                //console.log(res);
+                var status = res.status;
                 
+                if (status === "ok") {
+                    var n1 = res.firstname; setFormValueWithVal('firstname',n1);
+                    var n2 = res.lastname; setFormValueWithVal('lastname',n2);
+                    var em = res.email; setFormValueWithVal('email',em);
+                    //var r1 = res.reply1; setFormValueWithVal('',r1);
+                    //var r2 = res.reply2; setFormValueWithVal('',r2);
+                    
+                }
+                
+    
             }
-            
-
-        }
-    );     
+        );   
+    }
  }
