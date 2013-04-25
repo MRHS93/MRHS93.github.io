@@ -39,7 +39,7 @@ function saveRSVPcookie(pName,pEmail,pRsvp1,pRsvp2){
 */
 
 function saveRSVPcookie(){
-    $("#rsvpFormData:input").each(
+    $("#rsvpFormData :input").each(
         function() {
             console.log(this.name + ' ' + this.value);
             createCookie(this.name,this.value,365);
@@ -54,7 +54,7 @@ function setFormValue(pName,pVal) {
 
 function fillForm() {
     console.log("======READING DATA=======");
-    $("#rsvpFormData:input").each(
+    $("#rsvpFormData :input").each(
         function() {
             var fval = readCookie(this.name);
             console.log(this.name + ' ' + fval);
