@@ -61,6 +61,8 @@ $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDu
             );
     //    }
     //);
+    
+    getFormDataAjax();
 
  } 
  
@@ -126,7 +128,52 @@ function rsvpOut() {
             var frm = $("#rsvpFormData");
             if (frm) {
                 //fillForm(frm);
+                readGetData();
             }
         } 
     );
+ }
+ 
+ function setFormValueWithVal(pName,pVal) {
+     if (pVal) {
+        $("#"+pName).val(pVal);
+     }
+}
+
+function readGetData(){
+    var $_GET = {};
+    
+    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+        function decode(s) {
+            return decodeURIComponent(s.split("+").join(" "));
+        }
+    
+        $_GET[decode(arguments[1])] = decode(arguments[2]);
+    });
+    
+    var em = $_GET["email"];
+    if (em){
+        setFormValueWithVal("email",em);
+    }
+}
+ 
+ function getFormDataAjax(){
+    $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','firstname=carl&lastname=tracy&email=carltracy@gmail.com&reply1=1&reply2=1',
+        function(res) {
+            //console.log("got reply");
+            //console.log(res);
+            var status = res.status;
+            
+            if (status === "ok") {
+                var n1 = res.firstname; setFormValueWithVal('firstname',n1);
+                var n2 = res.lastname; setFormValueWithVal('lastname',n2);
+                var em = res.email; setFormValueWithVal('email',em);
+                //var r1 = res.reply1; setFormValueWithVal('',r1);
+                //var r2 = res.reply2; setFormValueWithVal('',r2);
+                
+            }
+            
+
+        }
+    );     
  }
