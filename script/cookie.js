@@ -39,59 +39,28 @@ function saveRSVPcookie(pName,pEmail,pRsvp1,pRsvp2){
 */
 
 function saveRSVPcookie(){
-    var data = objectify(frm);
-    //console.log(data);
-    //createCookie(cname,data,365);
     $("#rsvpFormData:input").each(
         function() {
+            console.log(this.name + ' ' + this.value);
             createCookie(this.name,this.value,365);
         }    
-    );
+    ); 
 }
 
-function objectify(frm) {
-    //var fields = {};
-    /*
-    frm.find(":input").each(
-        function() {
-            fields[this.name] = $(this).val();
-        }  
-    );
-    */
-    
-    var paramObj = {};
-    var data = frm.serializeArray();
-    //console.log(data);
-    $.each(data, function(_, kv) {
-        paramObj[kv.name] = kv.value;
-    });
-
-    return paramObj;
-    
+function setFormValue(pName,pVal) {
+    $("#"+pName).val(pVal);
 }
 
-function getSavedRSVPdata() {
-    var data = readCookie(cname);
-    return data;
-}
 
-function fillForm(frm) {
+function fillForm() {
+    console.log("======READING DATA=======");
     $("#rsvpFormData:input").each(
         function() {
-            createCookie(this.name,this.value,365);
+            var fval = readCookie(this.name);
+            console.log(this.name + ' ' + fval);
+            setFormValue(name,fval);
         }    
     );    
-    /*
-    var data = getSavedRSVPdata();
-    console.log(data);
-    if (data) {
-        
-        for (var prop in data) {
-            $("#"+prop).val(data[prop]);
-        }
-        
-    }
-    */
 }
 
 

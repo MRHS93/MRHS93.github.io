@@ -256,8 +256,9 @@ p {
 }
 
 label {
-    display:                inline-block;
     clear:                  left;
+    display:                inline-block;
+    width:                  45%;
 }
 
 .spacer {

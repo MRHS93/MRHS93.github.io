@@ -21,7 +21,7 @@
                 function() {
                     $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"},150,
                         function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px"},150,
-                            function(){ $("#rsvpContent").fadeIn(200) , fillForm( $("#rsvpFormData") ) }
+                            function(){ $("#rsvpContent").fadeIn(200) , fillForm( ); }
                         )}
                     );
                 }
@@ -71,7 +71,7 @@ function rsvpOut() {
             
             var frm = $("#rsvpFormData");
             if (frm) {
-                saveRSVPcookie(frm);
+                saveRSVPcookie();
             }            
             
             return false;
