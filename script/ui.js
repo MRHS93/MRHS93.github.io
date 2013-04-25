@@ -72,12 +72,12 @@ function rsvpOut() {
     var padT = (hTot - h)/2.0;
     var padW = (wTot - w)/2.0;
     
-    $("#rsvpContent").fadeOut(200,
+    $("#rsvpContent").fadeOut(SCL,
         function() {
             $("#rsvpForm").animate({height:"3px",top:(hTot/2.0 - 1.5) +"px",borderWidth:"0"}, SCL ,'speedOut',
                 function() {
                     $("#rsvpForm").animate({width:"3px",left:(wTot/2.0-1.5)+"px"}, 2 * SCL,'speedOut',
-                        function() { $("#bgOverlay,#rsvpForm").fadeOut(200 ,'speedOut' , function(){$("#bgOverlay").remove();}) }
+                        function() { $("#bgOverlay,#rsvpForm").fadeOut(SCL ,'speedOut' , function(){$("#bgOverlay").remove();}) }
                     );
                 }
             );
