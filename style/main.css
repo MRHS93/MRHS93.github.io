@@ -256,6 +256,7 @@ p {
 }
 
 label {
+    display:                block;
     float:                  left;
     clear:                  left;
 }
@@ -268,10 +269,12 @@ label {
 
 .clear {
     clear:                  both;
+    display:                block;
 }
 
 input {
     clear:                  right;
+    display:                block;
 }
 
 
