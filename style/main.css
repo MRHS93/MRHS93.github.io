@@ -256,8 +256,7 @@ p {
 }
 
 label {
-    display:                block;
-    float:                  left;
+    display:                inline-block;
     clear:                  left;
 }
 
@@ -274,7 +273,8 @@ label {
 
 input {
     clear:                  right;
-    display:                block;
+    display:                inline-block;
+    width:                  50%;
 }
 
 
