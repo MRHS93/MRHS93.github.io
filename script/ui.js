@@ -169,7 +169,7 @@ function readGetData(){
  function getFormDataAjax(){
     var email = getFormVal("email");
     if (email) {
-        $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=0&email=',
+        $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=0&email=' + email,
             function(res) {
                 //console.log("got reply");
                 //console.log(res);
