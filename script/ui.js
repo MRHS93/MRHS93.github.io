@@ -1,5 +1,5 @@
 
-var SCL = 250;
+var SCL = 400;
 
 function min(a,b) {
     if (a > b) return b;
@@ -23,17 +23,18 @@ function tanh(aValue) {
 }
 
 
-var easeSclT = 3;
-var easeScl  = 1.0 / sinh(easeSclT);
+var easeSclT = 10;
+var easeScl  = tanh(easeSclT*0.5);
 
 $.easing.speedIn = function(t, millisecondsSince, startValue, endValue, totalDuration) {
     //return (sinh((x - 0.5) * 5) + sinh(-(x - 0.5)) + (sinh(2.5) + Math.sin(-2.5))) /    (sinh(2.5) * 1.82);
-    return easeScl * sinh(easeSclT * t);
+    return 0.5*(easeScl + tanh(easeSclT * (t - 0.5)));
 };
 
 $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDuration) {
     //return (sinh((x - 0.5) * 5) + sinh(-(x - 0.5)) + (sinh(2.5) + Math.sin(-2.5))) /    (sinh(2.5) * 1.82);
-    return tanh(easeSclT * t);
+    //return tanh(easeSclT * t);
+    return 0.5*(easeScl + tanh(easeSclT * (t - 0.5)));
 };
  
  function rsvpIn() {
@@ -47,7 +48,7 @@ $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDu
     
     $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px").css("left",wTot/2.0 - 1.5+"px");
 
-    $("#rsvpForm,#bgOverlay").fadeIn(0.5 * SCL, 'speedIn');
+    $("#rsvpForm,#bgOverlay").fadeIn(SCL, 'speedIn');
     //    function() {
             $("#rsvpForm").animate({height:"3px",width:"3px"},0.5 * SCL,  'speedIn',
                 function() {
