@@ -34,12 +34,19 @@
     
     
     <body>
+        <div id="output">
+            <b>submitting data</b>
+        </div>
         <script>
             console.log("submitting");
-            $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','firstname=carl&lastname=tracy&email=carltracy%40gmail.com&reply1=1&reply2=1',
+            $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','firstname=carl&lastname=tracy&email=carltracy@gmail.com&reply1=1&reply2=1',
                 function(res) {
-                    console.log("got reply");
-                    console.log(res);
+                    //console.log("got reply");
+                    //console.log(res);
+                    $("#output").html("<p>Status: " + res.status + "</p>" +
+                    "<p>name: " + res.firstname + res.lastname + "</p>" +
+                    "<p>email: " + res.email  + "</p>"
+                    );
                 }
             );
         </script>
