@@ -27,6 +27,45 @@ function tanh(aValue) {
 }
 
 /*
+    EM / PX from https://raw.github.com/filamentgroup/jQuery-Pixel-Em-Converter/master/pxem.jQuery.js
+*/
+
+/*-------------------------------------------------------------------- 
+ * jQuery pixel/em conversion plugins: toEm() and toPx()
+ * by Scott Jehl (scott@filamentgroup.com), http://www.filamentgroup.com
+ * Copyright (c) Filament Group
+ * Dual licensed under the MIT (filamentgroup.com/examples/mit-license.txt) or GPL (filamentgroup.com/examples/gpl-license.txt) licenses.
+ * Article: http://www.filamentgroup.com/lab/update_jquery_plugin_for_retaining_scalable_interfaces_with_pixel_to_em_con/
+ * Options:
+ scope: string or jQuery selector for font-size scoping	
+ * Usage Example: $(myPixelValue).toEm(); or $(myEmValue).toPx();
+--------------------------------------------------------------------*/
+
+$.fn.toEm = function(settings){
+	settings = jQuery.extend({
+		scope: 'body'
+	}, settings);
+	var that = parseInt(this[0],10),
+		scopeTest = jQuery('<div style="display: none; font-size: 1em; margin: 0; padding:0; height: auto; line-height: 1; border:0;">&nbsp;</div>').appendTo(settings.scope),
+		scopeVal = scopeTest.height();
+	scopeTest.remove();
+	return (that / scopeVal).toFixed(8) + 'em';
+};
+
+
+$.fn.toPx = function(settings){
+	settings = jQuery.extend({
+		scope: 'body'
+	}, settings);
+	var that = parseFloat(this[0]),
+		scopeTest = jQuery('<div style="display: none; font-size: 1em; margin: 0; padding:0; height: auto; line-height: 1; border:0;">&nbsp;</div>').appendTo(settings.scope),
+		scopeVal = scopeTest.height();
+	scopeTest.remove();
+	return Math.round(that * scopeVal) + 'px';
+};
+
+
+/*
 Easing
 */
 
@@ -47,13 +86,22 @@ $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDu
 /*
 Show/hide rsvp
 */ 
- 
- function rsvpIn() {
+
+function getMinRSVPH() {
+    var test = $("#rsvpFormData").height();
+    alert(test);
+    test = Math.max(300,test);
+    return test;
+}
+
+var minHeight = $(21).toEm() ;
+
+function rsvpIn() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
     var hTot = $(window).height();
     var wTot = $(window).width();
     var w = min(400,wTot * 0.5);
-    var h = min(300,hTot * 0.5);
+    var h = min( minHeight ,hTot * 0.5);
     var padT = (hTot - h)/2.0;
     var padW = (wTot - w)/2.0;
     
@@ -79,7 +127,7 @@ function rsvpOut() {
     var hTot = $(window).height();
     var wTot = $(window).width();
     var w = min(400,wTot * 0.5);
-    var h = min(300,hTot * 0.5);
+    var h = min( minHeight  ,hTot * 0.5);
     var padT = (hTot - h)/2.0;
     var padW = (wTot - w)/2.0;
     
