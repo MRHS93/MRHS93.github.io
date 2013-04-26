@@ -295,3 +295,9 @@ input , select {
     width:                  auto;
 }
 
+.required {
+    color:                  red;
+    font-size:              50%;
+    font-weight:            bold;
+    vertical-align:         super;
+}

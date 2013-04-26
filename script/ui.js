@@ -113,7 +113,8 @@ if (jQuery) {
         } 
     );
  }
- function setupEventHandlers(){
+ 
+function setupEventHandlers(){
     $("#rsvp").click( function() {
         rsvpIn();
     });
@@ -138,9 +139,9 @@ if (jQuery) {
         }
     );
     
-    $("#rsvp").change(
+    $("#email").blur(
         function() {
-            
+            getFormDataAjax();
         }
     );
  }
