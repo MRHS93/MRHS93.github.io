@@ -248,6 +248,8 @@ p {
 
 #rsvpExit:hover {
     color:                  red;
+    cursor:                 hand; 
+    cursor:                 pointer;    
 }
 
 #rsvpContent {

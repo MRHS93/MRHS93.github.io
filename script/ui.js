@@ -72,7 +72,7 @@ function rsvpOut() {
     var padT = (hTot - h)/2.0;
     var padW = (wTot - w)/2.0;
     
-    $("#rsvpContent").fadeOut(SCL, 0.5 * SCL , 
+    $("#rsvpContent").fadeOut(0.5 * SCL , 
         function() {
             $("#rsvpForm").animate({height:"3px",top:(hTot/2.0 - 1.5) +"px",borderWidth:"0", padding:"0"}, SCL ,'speedOut',
                 function() {
@@ -103,7 +103,7 @@ function rsvpOut() {
             
             var frm = $("#rsvpFormData");
             if (frm) {
-                saveRSVPcookie();
+                //saveRSVPcookie();
             }            
             
             return false;
