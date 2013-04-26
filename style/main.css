@@ -214,6 +214,7 @@ p {
     height:                 0;    
     margin:                 0 auto;
     opacity:                1.0;
+    padding:                0;
     top:                    0;
     left:                   50%;
     max-height:             300px;
@@ -236,14 +237,17 @@ p {
     z-index:                20;
 }
 
-#rsvpExit {
+#rsvpExit  {
     color:                  #333;
     float:                  right;
-    font-weight:            bold;
-    margin:                 0.5em 1em;
+    font-family:            'Arial Black', sans-serif; 
     right:                  0;
     text-decoration:        none;
     top:                    0;        
+}
+
+#rsvpExit:hover {
+    color:                  red;
 }
 
 #rsvpContent {
@@ -253,6 +257,12 @@ p {
 #rsvpFormData {
     float:                  left;
     margin:                 0.5em;
+}
+
+label, button, select, input {
+    font-family:            Cutive,'Arial Black', sans-serif;   
+    font-size:              12pt;
+    font-weight:            normal;
 }
 
 label {
@@ -272,14 +282,14 @@ label {
     display:                block;
 }
 
-input {
+input , select {
     clear:                  right;
     display:                inline-block;
     width:                  50%;
 }
 
+
 .submit {
     width:                  auto;
 }
-
 

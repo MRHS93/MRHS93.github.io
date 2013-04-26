@@ -1,5 +1,5 @@
 
-var SCL = 400;
+var SCL = 200;
 
 function min(a,b) {
     if (a > b) return b;
@@ -48,19 +48,16 @@ $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDu
     
     $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px").css("left",wTot/2.0 - 1.5+"px");
 
-    $("#rsvpForm,#bgOverlay").fadeIn(SCL, 'speedIn');
-    //    function() {
-            $("#rsvpForm").animate({height:"3px",width:"3px"},0.5 * SCL,  'speedIn',
-                function() {
-                    $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"},2 * SCL,  'speedIn',
-                        function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px"},SCL,  'speedIn',
-                            function(){ $("#rsvpContent").fadeIn(0.5 * SCL,  'speedIn' /*, getFormDataAjax()*/ )  }
-                        )}
-                    );
-                }
+    $("#rsvpForm,#bgOverlay").fadeIn(2.0 * SCL, 'speedIn');
+    $("#rsvpForm").animate({height:"3px",width:"3px"},  SCL,  'speedIn',
+        function() {
+            $("#rsvpForm").animate({width:w+"px",left:padW+"px",borderWidth:"1px"}, 2 * SCL,  'speedIn',
+                function() { $("#rsvpForm").animate({height:h+"px",top:padT+"px",borderWidth:"3px", padding:"1em"}, SCL, 'speedIn',
+                    function(){ $("#rsvpContent").fadeIn(0.5 * SCL,  'speedIn' /*, getFormDataAjax()*/ )  }
+                )}
             );
-    //    }
-    //);
+        }
+    );
     
     
 
@@ -75,9 +72,9 @@ function rsvpOut() {
     var padT = (hTot - h)/2.0;
     var padW = (wTot - w)/2.0;
     
-    $("#rsvpContent").fadeOut(SCL,
+    $("#rsvpContent").fadeOut(SCL, 0.5 * SCL , 
         function() {
-            $("#rsvpForm").animate({height:"3px",top:(hTot/2.0 - 1.5) +"px",borderWidth:"0"}, SCL ,'speedOut',
+            $("#rsvpForm").animate({height:"3px",top:(hTot/2.0 - 1.5) +"px",borderWidth:"0", padding:"0"}, SCL ,'speedOut',
                 function() {
                     $("#rsvpForm").animate({width:"3px",left:(wTot/2.0-1.5)+"px"}, 2 * SCL,'speedOut',
                         function() { $("#bgOverlay,#rsvpForm").fadeOut(SCL ,'speedOut' , function(){$("#bgOverlay").remove();}) }

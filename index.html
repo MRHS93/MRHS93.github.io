@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html class="no-js">
     <head>
-        <script type="text/javascript" src="script/gFonts.js"> </script>
+        <script type="text/javascript">
+            /* 'Great+Vibes::latin', 'Headland+One::latin', 'Ovo::latin', 'Copse::latin', 'Tangerine:700:latin', 'Squada+One::latin', 'Arizonia::latin', 'Cutive::latin', 'Fjalla+One::latin'  */
+            var WebFontConfig = {                
+            google: { families: [  'Great+Vibes::latin', 'Headland+One::latin', 'Cutive::latin' ] }
+            };
+            (function() {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })(); </script>    
         <script src="script/modernizr.js"></script>
         
         <title>Mineral Ridge High School 1993 Class Reunion </title>
@@ -12,17 +25,11 @@
         <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
         <script type="text/javascript">
         if (typeof jQuery == 'undefined') {
-            //document.write(unescape("%3Cscript src='script/jquery-1.9.1.min.js' type='text/javascript'%3E%3C/script%3E"));
-            var jq = document.createElement('script');
-            jq.src = 'script/jquery-1.9.1.min.js';
-            jq.type = 'text/javascript';
-            jq.async = 'false';
-            var s = document.getElementsByTagName('script');
-            var sl = s[s.length - 1];
-            sl.parentNode.insertAfter(sl, s);        
-        } 
+            document.write(unescape("%3Cscript src='script/jquery-1.9.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+        }
         </script>
         <script type="text/javascript" src="script/ui.js"></script>
+        <script type="text/javascript" src="script/cookie.js"></script>
     </head>
     
     
@@ -35,6 +42,20 @@
                     <label for="firstname">First Name</label>   <input id="firstname" name="firstname" type="text"></input>
                     <label for="lastname">Last Name</label>     <input id="lastname" name="lastname" type="text"></input>
                     <label for="email">email</label>            <input id="email" name="email" type="email" placeholder="me@example.com">
+                    <label for="reply1">Friday</label>
+                    <select name="reply1" id="reply1" >
+                      <option value="0">Not coming</option>
+                      <option value="1">Just me</option>
+                      <option value="2">Me + guest</option>
+                    </select>
+                    <label for="reply2">Saturday</label>
+                    <select name="reply2" id="reply2" >
+                      <option value="0">Not coming</option>
+                      <option value="1">Just Me</option>
+                      <option value="2">Me + guest</option>
+                      <option value="3">Me + family</option>
+                    </select>                    
+                    
                     <div class="clear"></div>
                     <input class="clear submit" type="submit" value="submit"></input>
                 </form>
