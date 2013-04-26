@@ -263,14 +263,15 @@ p {
 
 label, button, select, input {
     font-family:            Cutive,'Arial Black', sans-serif;   
-    font-size:              12pt;
+    font-size:              10pt;
     font-weight:            normal;
 }
 
 label {
     clear:                  left;
     display:                inline-block;
-    width:                  45%;
+    font-weight:            bold;
+    width:                  95%;
 }
 
 .spacer {
@@ -287,6 +288,10 @@ label {
 input , select {
     clear:                  right;
     display:                inline-block;
+    margin:                0 0 1em 0;
+}
+
+select {
     width:                  50%;
 }
 
