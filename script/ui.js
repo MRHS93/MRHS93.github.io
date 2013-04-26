@@ -1,4 +1,8 @@
 
+/*
+defs
+*/
+
 var SCL = 200;
 
 function min(a,b) {
@@ -22,6 +26,9 @@ function tanh(aValue) {
     return sinh(aValue) / cosh(aValue);
 }
 
+/*
+Easing
+*/
 
 var easeSclT = 10;
 var easeScl  = tanh(easeSclT*0.5);
@@ -36,6 +43,10 @@ $.easing.speedOut = function(t, millisecondsSince, startValue, endValue, totalDu
     //return tanh(easeSclT * t);
     return 0.5*(easeScl + tanh(easeSclT * (t - 0.5)));
 };
+ 
+/*
+Show/hide rsvp
+*/ 
  
  function rsvpIn() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
@@ -84,7 +95,24 @@ function rsvpOut() {
         }
     );
  }
+
+/*
+    UI
+*/
+
  
+if (jQuery) {
+    $(document).ready(
+        function() {
+            setupEventHandlers();
+            var frm = $("#rsvpFormData");
+            if (frm) {
+                //fillForm(frm);
+                readGetData();
+            }
+        } 
+    );
+ }
  function setupEventHandlers(){
     $("#rsvp").click( function() {
         rsvpIn();
@@ -117,21 +145,11 @@ function rsvpOut() {
     );
  }
  
+/*
+    Data
+*/
  
- if (jQuery) {
-    $(document).ready(
-        function() {
-            setupEventHandlers();
-            var frm = $("#rsvpFormData");
-            if (frm) {
-                //fillForm(frm);
-                readGetData();
-            }
-        } 
-    );
- }
- 
- function setFormValueWithVal(pName,pVal) {
+function setFormValueWithVal(pName,pVal) {
      if (pVal) {
         $("#"+pName).val(pVal);
      }
@@ -157,14 +175,19 @@ function readGetData(){
         $_GET[decode(arguments[1])] = decode(arguments[2]);
     });
     
-    var em = $_GET["email"];
+    var em = $_GET.email;
     if (em){
         setFormValueWithVal("email",em);
         getFormDataAjax();
     }
 }
- 
- function getFormDataAjax(){
+
+
+/*
+    AJAX
+*/
+
+function getFormDataAjax(){
     var email = getFormVal("email");
     if (email) {
         $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=0&email=' + email,
@@ -177,8 +200,8 @@ function readGetData(){
                     var n1 = res.firstname; setFormValueWithVal('firstname',n1);
                     var n2 = res.lastname; setFormValueWithVal('lastname',n2);
                     var em = res.email; setFormValueWithVal('email',em);
-                    //var r1 = res.reply1; setFormValueWithVal('',r1);
-                    //var r2 = res.reply2; setFormValueWithVal('',r2);
+                    var r1 = res.reply1; setFormValueWithVal('reply1',r1);
+                    var r2 = res.reply2; setFormValueWithVal('reply2',r2);
                     
                 }
                 
