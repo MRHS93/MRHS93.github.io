@@ -94,7 +94,7 @@ function getMinRSVPH() {
     return test;
 }
 
-var minHeight = $(21).toEm() ;
+var minHeight  ;
 
 function rsvpIn() {
     $("body").append('<div class="modalOverlay" id="bgOverlay"></div>');
@@ -157,6 +157,8 @@ if (jQuery) {
             if (frm) {
                 //fillForm(frm);
                 readGetData();
+                minHeight = $(21).toPx() ;
+                alert(minHeight);
             }
         } 
     );
