@@ -49,7 +49,7 @@ $.fn.toEm = function(settings){
 		scopeTest = jQuery('<div style="display: none; font-size: 1em; margin: 0; padding:0; height: auto; line-height: 1; border:0;">&nbsp;</div>').appendTo(settings.scope),
 		scopeVal = scopeTest.height();
 	scopeTest.remove();
-	return (that / scopeVal).toFixed(8) + 'em';
+	return (that / scopeVal).toFixed(8) ;
 };
 
 
@@ -61,7 +61,7 @@ $.fn.toPx = function(settings){
 		scopeTest = jQuery('<div style="display: none; font-size: 1em; margin: 0; padding:0; height: auto; line-height: 1; border:0;">&nbsp;</div>').appendTo(settings.scope),
 		scopeVal = scopeTest.height();
 	scopeTest.remove();
-	return Math.round(that * scopeVal) + 'px';
+	return Math.round(that * scopeVal) ;
 };
 
 
@@ -158,7 +158,7 @@ if (jQuery) {
                 //fillForm(frm);
                 readGetData();
                 minHeight = $(21).toPx() ;
-                alert(minHeight);
+                //alert(minHeight);
             }
         } 
     );
