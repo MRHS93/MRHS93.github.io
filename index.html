@@ -6,12 +6,15 @@
         
         <title>Mineral Ridge High School 1993 Class Reunion </title>
         
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="style/reset.css">
         <link rel="stylesheet" type="text/css" href="style/main.css">
         
+        <script type="text/javascript" src="script/people.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
         <script type="text/javascript" src="script/ui.js"></script>
         <script type="text/javascript" src="script/cookie.js"></script>
+        <script type="text/javascript" src="script/jquery-ui.js"></script>
     </head>
     
     
@@ -20,10 +23,11 @@
             <div id="rsvpContent">
                 <div id="rsvpExit">X</div>
                 <form id="rsvpFormData">
+                    <label for="name">Name</label>   <input id="firstname" name="firstname" type="text"></input>
                     <label for="email">Email<span class="required">*</span></span> </label>
                         <input id="email" name="email" type="email" placeholder="me@example.com">
-                    <label for="firstname">First Name</label>   <input id="firstname" name="firstname" type="text"></input>
-                    <label for="lastname">Last Name</label>     <input id="lastname" name="lastname" type="text"></input>
+                    
+                    <!--<label for="lastname">Last Name</label>     <input id="lastname" name="lastname" type="text"></input>-->
                     <label for="reply1">Friday</label>
                     <select name="reply1" id="reply1" >
                       <option value="0">Not coming</option>
@@ -37,7 +41,7 @@
                       <option value="2">Me + guest</option>
                       <option value="3">Me + family</option>
                     </select>                    
-                    
+                    <input type="hidden" name="id" value="0"></input>
                     <div class="clear"></div>
                     <input class="clear submit" type="submit" value="submit"></input>
                     <div class="clear"> </div>

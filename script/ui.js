@@ -208,11 +208,17 @@ function setupEventHandlers(){
         }
     );
     
+    /*
     $("#email").blur(
         function() {
             getFormDataAjax();
         }
     );
+    */
+    
+    $( "#tags" ).autocomplete({
+      source: autocomplete
+    });    
  }
  
 /*
