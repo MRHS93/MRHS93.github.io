@@ -301,10 +301,10 @@ function setupEventHandlers(){
         "Chris Wildman",
         "Jason Grimaldi"];
         
-        $( "#tags" ).autocomplete({
+        $( "#name" ).autocomplete({
           source: names
         }); 
-    });
+    })
         
  }
  
