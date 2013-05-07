@@ -216,9 +216,96 @@ function setupEventHandlers(){
     );
     */
     
-    $( "#tags" ).autocomplete({
-      source: autocomplete
-    });    
+
+    
+
+     /*
+        Autocomplete
+     */
+    $(function(){ 
+        var names = ["April Anderson",
+        "Jeffery Barton",
+        "Chris Bordonaro",
+        "Daniel Berndt",
+        "Andrea Apisa",
+        "Tami Burkhart",
+        "Darrell Booker",
+        "Irene Burns",
+        "Jesse Butler",
+        "Dawn Centofanti",
+        "Daniel Calko",
+        "Joseph Butcher",
+        "Amy Cozadd",
+        "Lyle Carpenter",
+        "Angela Cramer",
+        "Daniel DiRando",
+        "James Dowdy",
+        "Christopher Dickenson",
+        "Nathan Crocker",
+        "Stacie Donchatz",
+        "Melissa Duttle",
+        "Alessandro Ferone",
+        "Melanie Gogle",
+        "Megan Garris",
+        "Stephanie Fortner",
+        "Jeffrey Fisher",
+        "Craig Hamer",
+        "Christine Gartner",
+        "Richard Heltebran",
+        "Teresa Hernandez",
+        "Kristy Holdash",
+        "Mark Hixson",
+        "Bernard Herbert",
+        "Joseph Hladiuk",
+        "Darren Hood",
+        "John Jarman",
+        "Teresa Hopper",
+        "Julie Ladd",
+        "Michelle Kokoski",
+        "Shannyn Leake",
+        "Neil Huda",
+        "Melanie Kovach",
+        "Patricia Lowery",
+        "Jerome McConnell",
+        "Christopher Mikovich",
+        "Ace McBride",
+        "Daniel McElhaney",
+        "Patricia Miller",
+        "Brian Merkich",
+        "Diana Molina",
+        "Jonathan Morgan",
+        "Joielle Nutter",
+        "Rodney Polling",
+        "Michael Monroe",
+        "Michael Raub",
+        "Michelle Oliver",
+        "Jason Reese",
+        "Jennifer Russell",
+        "Chalet Seidel",
+        "Edward Sallustio",
+        "Kara Stoddard",
+        "Robert Samuels",
+        "Christopher Rose",
+        "Otto Stohmeyer",
+        "Carl Tracy",
+        "Teresa Ward",
+        "Lynnette Sanders",
+        "Stephanie Torksy",
+        "Amy Whittaker",
+        "Ann Walton",
+        "Eric Wiscott",
+        "Jason Wodagaza",
+        "Scott Zembower",
+        "Chriss Todd",
+        "Michael Albright",
+        "Chris Wildman",
+        "Jason Grimaldi"];
+        
+        $( "#tags" ).autocomplete({
+          source: names
+        }); 
+    });
+        
  }
  
 /*
@@ -286,3 +373,4 @@ function getFormDataAjax(){
         );   
     }
  }
+     

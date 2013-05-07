@@ -264,6 +264,7 @@ label, button, select, input {
     font-family:            Cutive,'Arial Black', sans-serif;   
     font-size:              10pt;
     font-weight:            normal;
+    line-height:            150%;
 }
 
 label {
