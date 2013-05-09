@@ -133,7 +133,7 @@ function rsvpIn() {
     
     if (!( ($('#name')==='') || ($('#name')===null) )) {
         getKey();
-        console.log('#key').val();
+        console.log($('#key').val());
     }
     
 
