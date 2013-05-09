@@ -462,7 +462,8 @@ function setFormDataAjax(name,email,r1,r2){
             if (status === "ok") {
                 $('#greeting').html('Thank you ' + $('#name').value());
                 rsvpOut();
-                $('#thanks').fadeIn(2000);
+                //.animate({height:"3px",width:"3px"},  SCL
+                $('#thanks').animate({height:"auto"}).fadeIn(2000);
             }
             
 
