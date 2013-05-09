@@ -216,12 +216,135 @@ function setupEventHandlers(){
     );
     */
     
-
+	$('#name').blur(
+		
+		function(event,ui) {
+			if (!($('#key').val())) {
+				var id = people.vlookup($('#name').val(),1,true);
+				//alert(id);
+				if (id) {
+					$('#key').val(id);
+					getFormDataAjax();
+				} else {
+					$('#key').val( Math.floor(Math.random()*10000000) );
+				}
+			}
+		}
+          
+	
+	);
     
 
      /*
         Autocomplete
      */
+Array.prototype.vlookup = function(needle,index){
+    index = index || 0;
+
+    for (var i = 0; i < this.length; i++){
+        var row = this[i];
+        
+        if (row[0]===needle)
+            return (index < row.length ? row[index] : row);
+    }
+    return null;
+}
+
+/*
+Array.prototype.vlookup = function(needle,index,exactmatch){
+    index = index || 0;
+    exactmatch = exactmatch || false;
+    for (var i = 0; i < this.length; i++){
+        var row = this[i];
+        
+        if ((exactmatch && row[0]===needle) || row[0].indexOf(needle) != -1)
+            return (index < row.length ? row[index] : row);
+    }
+    return null;
+}
+*/
+
+var people = [ 
+	['April Anderson',3503042],
+	['Jeffery Barton',4313308],
+	['Chris Bordonaro',1057419],
+	['Daniel Berndt',9347168],
+	['Andrea (Apisa) Dilts',6563590],
+	['Tami Burkhart',3776446],
+	['Darrell Booker',7191459],
+	['Irene Burns',5627958],
+	['Jesse Butler',5565416],
+	['Dawn Centofanti',9943208],
+	['Daniel Calko',5019794],
+	['Joseph Butcher',3269344],
+	['Amy Cozadd',9287340],
+	['Lyle Carpenter',8628672],
+	['Angela (Cramer) Ciarniello',5281341],
+	['Daniel DiRando',8520690],
+	['James Dowdy',7759427],
+	['Christopher Dickenson',3235069],
+	['Nathan Crocker',9897060],
+	['Stacie (Donchatz) Gerberry',2780100],
+	['Melissa Duttle',1209318],
+	['Alessandro Ferone',5706291],
+	['Melanie Gogle',5903505],
+	['Megan Garris',2398652],
+	['Stephanie Fortner',2282744],
+	['Jeffrey Fisher',3217767],
+	['Craig Hamer',8240603],
+	['Christine Gartner',3549717],
+	['Richard Heltebran',1026775],
+	['Teresa (Hernandez) Bott',2484726],
+	['Kristy Holdash',8343307],
+	['Mark Hixson',6262359],
+	['Bernard Herbert',5281874],
+	['Joseph Hladiuk',6622296],
+	['Darren Hood',7265859],
+	['John Jarman',6462410],
+	['Teresa (Hopper) Gearheart',9514473],
+	['Julie Ladd',9185137],
+	['Michelle Kokoski',7382270],
+	['Shannyn Leake',8355939],
+	['Neil Huda',9632886],
+	['Melanie Kovach',4096614],
+	['Patricia (Lowery) Collins',8584413],
+	['Jerome McConnell',2632226],
+	['Christopher Mikovich',4407888],
+	['Ace McBride',4142766],
+	['Daniel McElhaney',6490166],
+	['Patricia (Miller) Scott',1022536],
+	['Brian Merkich',2642182],
+	['Diana Molina',9143302],
+	['Jonathan Morgan',9789966],
+	['Joielle Nutter',2519929],
+	['Rodney Polling',9229743],
+	['Michael Monroe',1588932],
+	['Michael Raub',6255428],
+	['Michelle (Oliver) Pounds',7510346],
+	['Jason Reese',8785451],
+	['Jennifer Russell',2396218],
+	['Chalet Seidel',2624735],
+	['Edward Sallustio',4935022],
+	['Kara (Stoddard) Calderon',6800907],
+	['Robert Samuels',9199469],
+	['Christopher Rose',6594627],
+	['Otto Stohmeyer',4374730],
+	['Carl Tracy',1089768],
+	['Teresa (Ward) Langley',9324649],
+	['Lynnette Sanders',6353945],
+	['Stephanie Torksy',2795782],
+	['Amy Whittaker',2917072],
+	['Ann (Walton) Mannix',5198017],
+	['Eric Wiscott',7238869],
+	['Jason (Wodagaza) Beckham',1600299],
+	['Scott Zembower',3284887],
+	['Chriss Todd',1623538],
+	['Michael Albright',6263029],
+	['Chris Wildman',7444535],
+	['Jason Grimaldi',8433590]
+];
+     
+     
     $(function(){ 
         var names = ["April Anderson",
         "Jeffery Barton",
@@ -302,7 +425,21 @@ function setupEventHandlers(){
         "Jason Grimaldi"];
         
         $( "#name" ).autocomplete({
-          source: names
+          source: names ,
+          close: 
+          	function(event,ui) {
+          		console.log($('#name').val());
+          		var id = people.vlookup($('#name').val(),1,true);
+          		//alert(id);
+          		if (id) {
+          			$('#key').val(id);
+          			getFormDataAjax();
+          		} else {
+          			$('#key').val( Math.floor(Math.random()*10000000)  );
+          		}
+          	}
+          	
+          
         }); 
     })
         
@@ -351,17 +488,17 @@ function readGetData(){
 */
 
 function getFormDataAjax(){
-    var email = getFormVal("email");
-    if (email) {
-        $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=0&email=' + email,
+    var key = getFormVal("key");
+    //if (email) {
+        $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=0&key=' + key,
             function(res) {
                 //console.log("got reply");
                 //console.log(res);
                 var status = res.status;
                 
                 if (status === "ok") {
-                    var n1 = res.firstname; setFormValueWithVal('firstname',n1);
-                    var n2 = res.lastname; setFormValueWithVal('lastname',n2);
+                    var n1 = res.firstname; setFormValueWithVal('name',n1);
+                    //var n2 = res.lastname; setFormValueWithVal('lastname',n2);
                     var em = res.email; setFormValueWithVal('email',em);
                     var r1 = res.reply1; setFormValueWithVal('reply1',r1);
                     var r2 = res.reply2; setFormValueWithVal('reply2',r2);
@@ -371,6 +508,6 @@ function getFormDataAjax(){
     
             }
         );   
-    }
+    //}
  }
      
