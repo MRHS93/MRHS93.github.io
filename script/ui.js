@@ -130,6 +130,12 @@ function rsvpIn() {
     var padW = (wTot - w)/2.0;
     
     $("#rsvpForm").css("top",hTot/2.0 - 1.5+"px").css("left",wTot/2.0 - 1.5+"px");
+    
+    if (!( ($('#name')==='') || ($('#name')===null) )) {
+        getKey();
+        console.log('#key').val();
+    }
+    
 
     $("#rsvpForm,#bgOverlay").fadeIn(2.0 * SCL, 'speedIn');
     $("#rsvpForm").animate({height:"3px",width:"3px"},  SCL,  'speedIn',
