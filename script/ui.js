@@ -453,7 +453,7 @@ function setFormDataAjax(name,email,r1,r2){
         getKey();
         key = getFormVal("key");
     }
-    $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=1&key=' + key + 'name=' + name +  '&email=' + email +  '&reply1=' + r1 +  '&reply2=' + r2,
+    $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=1&key=' + key + '&name=' + name +  '&email=' + email +  '&reply1=' + r1 +  '&reply2=' + r2,
         function(res) {
             //console.log("got reply");
             //console.log(res);
