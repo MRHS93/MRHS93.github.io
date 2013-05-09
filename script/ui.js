@@ -468,10 +468,12 @@ function setFormDataAjax(name,email,r1,r2){
             console.log(status);
             if (status === "ok") {
                 $('#greeting').html('Thank you ' + $('#name').value());
-                rsvpOut();
-                //.animate({height:"3px",width:"3px"},  SCL
-                $('#thanks').animate({height:"auto"}).fadeIn(2000);
+            } else {
+                $('#thanks').html('<h2 id="greeting">Something might have broke =( </h2><p>If you don\'t get an email soon, please email <a href="mailto:carltracy@gmail.com">carltracy@gmail.com</a>    ');
             }
+            rsvpOut();
+            //.animate({height:"3px",width:"3px"},  SCL
+            $('#thanks').animate({height:"auto"}).fadeIn(2000);
             
 
         }

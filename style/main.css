@@ -312,5 +312,5 @@ input {
 
 #thanks {
     height:                 0;
-    visibility:             hidden;
+    display:                none;
 }
