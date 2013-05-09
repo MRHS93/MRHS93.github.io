@@ -484,10 +484,10 @@ function setFormDataAjax(name,email,r1,r2){
             var status = res.status;
             console.log(status);
             if (status === "OK") {
-                $('#greeting').html('<h3 id="greeting">Thank you ' + $('#name').val()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>' +
+                $('#greeting').html('<h3>Thank you ' + $('#name').val()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>' +
                     '<p>If you have problems or do not receive an email, please contact <a href="mailto:carltracy@gmail.com">Carl</a></p>');
             } else {
-                $('#greeting').html('<h3 id="greeting">Something might have broke =( </h3><p>If you don\'t get an email soon, please email <a href="mailto:carltracy@gmail.com">carltracy@gmail.com</a> <div class="clear"> </div>    ');
+                $('#greeting').html('<h3>Something might have broke =( </h3><p>If you don\'t get an email soon, please email <a href="mailto:carltracy@gmail.com">carltracy@gmail.com</a> <div class="clear"> </div>    ');
             }
             rsvpOut();
             //.animate({height:"3px",width:"3px"},  SCL
