@@ -466,14 +466,18 @@ function setFormDataAjax(name,email,r1,r2){
             //console.log(res);
             var status = res.status;
             console.log(status);
-            if (status === "ok") {
-                $('#greeting').html('Thank you ' + $('#name').value());
+            if (status === "OK") {
+                $('#greeting').html('<h3 id="greeting">Thank you ' + $('#name').value()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>' +
+                    '<p>If you have problems or do not receive an email, please contact <a href="mailto:carltracy@gmail.com">Carl</a></p>');
             } else {
-                $('#thanks').html('<h2 id="greeting">Something might have broke =( </h2><p>If you don\'t get an email soon, please email <a href="mailto:carltracy@gmail.com">carltracy@gmail.com</a>    ');
+                $('#thanks').html('<h3 id="greeting">Something might have broke =( </h3><p>If you don\'t get an email soon, please email <a href="mailto:carltracy@gmail.com">carltracy@gmail.com</a> <div class="clear"> </div>    ');
             }
             rsvpOut();
             //.animate({height:"3px",width:"3px"},  SCL
-            $('#thanks').animate({height:"auto"}).fadeIn(2000);
+            $('#thanks').css('height','auto');
+            var h = $('#thanks').height();
+            $('#thanks').css('height','0');
+            $('#thanks').animate({height:h+"px"}).fadeIn(2000);
             
 
         }
