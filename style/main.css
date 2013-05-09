@@ -145,7 +145,7 @@ p {
 
 .rsvp {
     -moz-box-shadow:        inset 0px 1px 0px 0px #C95D13;
-	-webkit-box-shadow:     inset 0px 1px 0px 0px #C95D13;
+    -webkit-box-shadow:     inset 0px 1px 0px 0px #C95D13;
 	box-shadow:             inset 0px 1px 0px 0px #C95D13;
 	background:             #F87217;
     background:             -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #F87217), color-stop(1, #FA9C5D) );
@@ -310,7 +310,12 @@ input {
     vertical-align:         super;
 }
 
-#thanks {
+#greeting {
     height:                 0;
     display:                none;
+}
+
+.small {
+    font-size:              60%;
+    margin:                 1em auto;
 }

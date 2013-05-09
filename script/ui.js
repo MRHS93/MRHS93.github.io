@@ -50,6 +50,13 @@ function isValidEmailAddress(emailAddress) {
     return pattern.test(emailAddress);
 }
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 /*
     EM / PX from https://raw.github.com/filamentgroup/jQuery-Pixel-Em-Converter/master/pxem.jQuery.js
 */
@@ -67,7 +74,7 @@ function isValidEmailAddress(emailAddress) {
 
 $.fn.toEm = function(settings){
     settings = jQuery.extend({
-		scope: 'body'
+    	scope: 'body'
 	}, settings);
 	var that = parseInt(this[0],10),
 		scopeTest = jQuery('<div style="display: none; font-size: 1em; margin: 0; padding:0; height: auto; line-height: 1; border:0;">&nbsp;</div>').appendTo(settings.scope),
@@ -188,6 +195,8 @@ if (jQuery) {
                 readGetData();
                 minHeight = $(21).toPx() ;
             }
+            
+            checkKeyOnLoad();
         } 
     );
  }
@@ -430,6 +439,14 @@ function readGetData(){
     AJAX
 */
 
+function checkKeyOnLoad(){
+    var key = getParameterByName('key');
+    if (key){
+        $('#key').val(key);
+        getFormDataAjax();
+    }
+}
+
 function getFormDataAjax(){
     var key = getFormVal("key");
     //if (email) {
@@ -467,17 +484,17 @@ function setFormDataAjax(name,email,r1,r2){
             var status = res.status;
             console.log(status);
             if (status === "OK") {
-                $('#thanks').html('<h3 id="greeting">Thank you ' + $('#name').val()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>' +
+                $('#greeting').html('<h3 id="greeting">Thank you ' + $('#name').val()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>' +
                     '<p>If you have problems or do not receive an email, please contact <a href="mailto:carltracy@gmail.com">Carl</a></p>');
             } else {
-                $('#thanks').html('<h3 id="greeting">Something might have broke =( </h3><p>If you don\'t get an email soon, please email <a href="mailto:carltracy@gmail.com">carltracy@gmail.com</a> <div class="clear"> </div>    ');
+                $('#greeting').html('<h3 id="greeting">Something might have broke =( </h3><p>If you don\'t get an email soon, please email <a href="mailto:carltracy@gmail.com">carltracy@gmail.com</a> <div class="clear"> </div>    ');
             }
             rsvpOut();
             //.animate({height:"3px",width:"3px"},  SCL
-            $('#thanks').css('height','auto');
-            var h = $('#thanks').height();
-            $('#thanks').css('height','0');
-            $('#thanks').animate({height:h+"px"}).fadeIn(2000);
+            $('#greeting').css('height','auto');
+            var h = $('#greeting').height();
+            $('#greeting').css('height','0');
+            $('#greeting').animate({height:h+"px"}).fadeIn(2000);
             
 
         }
