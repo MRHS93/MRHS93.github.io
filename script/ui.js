@@ -574,7 +574,7 @@ var people = [
 	['Christopher Rose',6594627],
 	['Otto Stohmeyer',4374730],
 	['Carl Tracy',1089768],
-	['Teresa (Ward) Langley',9324649],
+	['Theresa (Ward) Langley',9324649],
 	['Lynnette Sanders',6353945],
 	['Stephanie Torksy',2795782],
 	['Amy Whittaker',2917072],
