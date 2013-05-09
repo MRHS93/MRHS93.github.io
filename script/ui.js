@@ -457,12 +457,12 @@ function getFormDataAjax(){
                 var status = res.status;
                 
                 if (status === "ok") {
-                    var n1 = res.firstname; setFormValueWithVal('name',n1);
+                    //var n1 = res.firstname; setFormValueWithVal('name',n1);
                     //var n2 = res.lastname; setFormValueWithVal('lastname',n2);
                     var em = res.email; setFormValueWithVal('email',em);
                     var r1 = res.reply1; setFormValueWithVal('reply1',r1);
                     var r2 = res.reply2; setFormValueWithVal('reply2',r2);
-                    
+                    var name = res.name; setFormValueWithVal('name',name);
                 }
                 
     
