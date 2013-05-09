@@ -458,9 +458,11 @@ function setFormDataAjax(name,email,r1,r2){
             //console.log("got reply");
             //console.log(res);
             var status = res.status;
-            
+            console.log(status);
             if (status === "ok") {
-                console.log("updated");
+                $('#greeting').html('Thank you ' + $('#name').value());
+                rsvpOut();
+                $('#thanks').fadeIn(2000);
             }
             
 
