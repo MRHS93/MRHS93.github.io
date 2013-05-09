@@ -133,7 +133,7 @@ function rsvpIn() {
     
     if (!( ($('#name')==='') || ($('#name')===null) )) {
         getKey();
-        console.log($('#key').val());
+        
     }
     
 
@@ -379,7 +379,7 @@ Array.prototype.vlookup = function(needle,index,exactmatch){
 */
 
 function getKey() {
-    console.log($('#name').val());
+    //console.log($('#name').val());
     //var people = getPeople();
     var id = people.vlookup($('#name').val(),1,true);
     //alert(id);
@@ -388,7 +388,8 @@ function getKey() {
     getFormDataAjax();
     } else {
     $('#key').val( Math.floor(Math.random()*10000000)  );
-    }    
+    } 
+    console.log($('#name').val() + ' key = ' + $('#key').val());
 }
  
 function setFormValueWithVal(pName,pVal) {
