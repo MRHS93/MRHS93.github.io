@@ -484,8 +484,7 @@ function setFormDataAjax(name,email,r1,r2){
             var status = res.status;
             console.log(status);
             if (status === "OK") {
-                var html = '<h3>Thank you ' + $('#name').val()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>' +
-                    '<p>If you have problems or do not receive an email, please contact <a href="mailto:carltracy@gmail.com">Carl</a></p>';
+                var html = '<h3>Thank you ' + $('#name').val()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>';
                 if (r1 + r2) {
                     html += '<p>Please visit <a href="http://mrhs93.github.io/pay.html">http://mrhs93.github.io/pay.html</a> for information on how to pay</p>';
                 }
