@@ -444,6 +444,7 @@ function checkKeyOnLoad(){
     if (key){
         $('#key').val(key);
         getFormDataAjax();
+        rsvpIn();
     }
 }
 
