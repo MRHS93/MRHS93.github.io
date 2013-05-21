@@ -388,7 +388,7 @@ Array.prototype.vlookup = function(needle,index,exactmatch){
 */
 
 function getKey() {
-    //console.log($('#name').val());
+    ////console.log($('#name').val());
     //var people = getPeople();
     var id = people.vlookup($('#name').val(),1,true);
     //alert(id);
@@ -398,7 +398,7 @@ function getKey() {
     } else {
     $('#key').val( Math.floor(Math.random()*10000000)  );
     } 
-    console.log($('#name').val() + ' key = ' + $('#key').val());
+    //console.log($('#name').val() + ' key = ' + $('#key').val());
 }
  
 function setFormValueWithVal(pName,pVal) {
@@ -453,8 +453,8 @@ function getFormDataAjax(){
     //if (email) {
         $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=0&key=' + key,
             function(res) {
-                //console.log("got reply");
-                //console.log(res);
+                ////console.log("got reply");
+                ////console.log(res);
                 var status = res.status;
                 
                 if (status === "ok") {
@@ -480,10 +480,10 @@ function setFormDataAjax(name,email,r1,r2){
     }
     $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=1&key=' + key + '&name=' + name +  '&email=' + email +  '&reply1=' + r1 +  '&reply2=' + r2,
         function(res) {
-            //console.log("got reply");
-            //console.log(res);
+            ////console.log("got reply");
+            ////console.log(res);
             var status = res.status;
-            console.log(status);
+            //console.log(status);
             if (status === "OK") {
                 var html = '<h3>Thank you ' + $('#name').val()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>';
                 if (r1 + r2) {
