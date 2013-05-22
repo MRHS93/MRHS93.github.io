@@ -127,7 +127,7 @@ Show/hide rsvp
 
 function getMinRSVPH() {
     var test = $("#rsvpFormData").height();
-    alert(test);
+    //alert(test);
     test = Math.max(300,test);
     return test;
 }
@@ -450,11 +450,11 @@ function LoadParticipantData() {
             if (res){
                 if (res.names){
                     names = res.names;
-                    alert("loaded names");
+                    //alert("loaded names");
                 }
                 if (res.people){
                     people = res.people;
-                    alert("loaded people");
+                    //alert("loaded people");
                 }
             }
 
