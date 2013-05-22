@@ -290,7 +290,7 @@ function getKey() {
     //$('#key').val( Math.floor(Math.random()*10000000)  );
     $('#key').val( Math.floor(random()*10000000)  );
     } 
-    console.log($('#name').val() + ' key = ' + $('#key').val());
+    //console.log($('#name').val() + ' key = ' + $('#key').val());
 }
  
 function setFormValueWithVal(pName,pVal) {
@@ -375,7 +375,7 @@ function setFormDataAjax(name,email,r1,r2){
             //console.log("got reply");
             //console.log(res);
             var status = res.status;
-            console.log(status);
+            //console.log(status);
             if (status === "OK") {
                 var html = '<h3>Thank you ' + $('#name').val()+'</h3><p>Your response has been recorded You should receive an email shortly.</p>';
                 if (r1 + r2) {

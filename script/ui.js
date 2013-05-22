@@ -50,6 +50,13 @@ function isValidEmailAddress(emailAddress) {
     return pattern.test(emailAddress);
 }
 
+function random(seed) {
+  if (!seed)
+    seed = new Date().getTime();
+  seed = (seed*9301+49297) % 233280;
+  return seed/(233280.0);
+}
+
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -74,7 +81,7 @@ function getParameterByName(name) {
 
 $.fn.toEm = function(settings){
     settings = jQuery.extend({
-    	scope: 'body'
+        scope: 'body'
 	}, settings);
 	var that = parseInt(this[0],10),
 		scopeTest = jQuery('<div style="display: none; font-size: 1em; margin: 0; padding:0; height: auto; line-height: 1; border:0;">&nbsp;</div>').appendTo(settings.scope),
@@ -120,7 +127,7 @@ Show/hide rsvp
 
 function getMinRSVPH() {
     var test = $("#rsvpFormData").height();
-    alert(test);
+    //alert(test);
     test = Math.max(300,test);
     return test;
 }
@@ -197,6 +204,8 @@ if (jQuery) {
             }
             
             checkKeyOnLoad();
+            
+            LoadParticipantData();
         } 
     );
  }
@@ -253,7 +262,8 @@ function setupEventHandlers(){
 					$('#key').val(id);
 					getFormDataAjax();
 				} else {
-					$('#key').val( Math.floor(Math.random()*10000000) );
+					//$('#key').val( Math.floor(Math.random()*10000000) );
+                    $('#key').val( Math.floor(random()*10000000) );
 				}
 			}
 		}
@@ -261,125 +271,6 @@ function setupEventHandlers(){
 	
 	);
     
-
-     /*
-        Autocomplete
-     */
-Array.prototype.vlookup = function(needle,index){
-    index = index || 0;
-
-    for (var i = 0; i < this.length; i++){
-        var row = this[i];
-        
-        if (row[0]===needle)
-            return (index < row.length ? row[index] : row);
-    }
-    return null;
-}
-
-/*
-Array.prototype.vlookup = function(needle,index,exactmatch){
-    index = index || 0;
-    exactmatch = exactmatch || false;
-    for (var i = 0; i < this.length; i++){
-        var row = this[i];
-        
-        if ((exactmatch && row[0]===needle) || row[0].indexOf(needle) != -1)
-            return (index < row.length ? row[index] : row);
-    }
-    return null;
-}
-*/
-
-     
-    $(function(){ 
-        var names = ["April Anderson",
-"Jeffery Barton",
-"Chris Bordonaro",
-"Daniel Berndt",
-"Andrea (Apisa) Dilts",
-"Tami Burkhart",
-"Darrell Booker",
-"Irene Burns",
-"Jesse Butler",
-"Dawn Centofanti",
-"Daniel Calko",
-"Joseph Butcher",
-"Amy Cozadd",
-"Lyle Carpenter",
-"Angela (Cramer) Ciarniello",
-"Daniel DiRando",
-"James Dowdy",
-"Christopher Dickenson",
-"Nathan Crocker",
-"Stacie (Donchatz) Gerberry",
-"Melissa Duttle",
-"Alessandro Ferone",
-"Melanie Gogle",
-"Megan Garris",
-"Stephanie Fortner",
-"Jeffrey Fisher",
-"Craig Hamer",
-"Christine Gartner",
-"Richard Heltebran",
-"Teresa (Hernandez) Bott",
-"Kristy Holdash",
-"Mark Hixson",
-"Bernard Herbert",
-"Joseph Hladiuk",
-"Darren Hood",
-"John Jarman",
-"Theresa (Hopper) Gearheart",
-"Julie Ladd",
-"Michelle Kokoski",
-"Shannyn Leake",
-"Neil Huda",
-"Melanie Kovach",
-"Patricia (Lowery) Collins",
-"Jerome McConnell",
-"Christopher Mikovich",
-"Ace McBride",
-"Daniel McElhaney",
-"Patricia (Miller) Scott",
-"Brian Merkich",
-"Diana Molina",
-"Jonathan Morgan",
-"Joielle Nutter",
-"Rodney Polling",
-"Michael Monroe",
-"Michael Raub",
-"Michelle (Oliver) Pounds",
-"Jason Reese",
-"Jennifer Russell",
-"Chalet Seidel",
-"Edward Sallustio",
-"Kara (Stoddard) Calderon",
-"Robert Samuels",
-"Christopher Rose",
-"Otto Stohmeyer",
-"Carl Tracy",
-"Teresa (Ward) Langley",
-"Lynnette Sanders",
-"Stephanie Torksy",
-"Amy Whittaker",
-"Ann (Walton) Mannix",
-"Eric Wiscott",
-"Jason (Wodagaza) Beckham",
-"Scott Zembower",
-"Chriss Todd",
-"Michael Albright",
-"Chris Wildman",
-"Jason Grimaldi"];
-        
-        $( "#name" ).autocomplete({
-          source: names ,
-          close: 
-            function(event,ui) {
-                getKey();
-            }
-          
-        }); 
-    })
         
  }
  
@@ -388,7 +279,7 @@ Array.prototype.vlookup = function(needle,index,exactmatch){
 */
 
 function getKey() {
-    ////console.log($('#name').val());
+    //console.log($('#name').val());
     //var people = getPeople();
     var id = people.vlookup($('#name').val(),1,true);
     //alert(id);
@@ -396,7 +287,8 @@ function getKey() {
     $('#key').val(id);
     getFormDataAjax();
     } else {
-    $('#key').val( Math.floor(Math.random()*10000000)  );
+    //$('#key').val( Math.floor(Math.random()*10000000)  );
+    $('#key').val( Math.floor(random()*10000000)  );
     } 
     //console.log($('#name').val() + ' key = ' + $('#key').val());
 }
@@ -453,8 +345,8 @@ function getFormDataAjax(){
     //if (email) {
         $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=0&key=' + key,
             function(res) {
-                ////console.log("got reply");
-                ////console.log(res);
+                //console.log("got reply");
+                //console.log(res);
                 var status = res.status;
                 
                 if (status === "ok") {
@@ -480,8 +372,8 @@ function setFormDataAjax(name,email,r1,r2){
     }
     $.getJSON('http://theycallmecarl.com/mrhs93/rsvp.php?callback=?','intent=1&key=' + key + '&name=' + name +  '&email=' + email +  '&reply1=' + r1 +  '&reply2=' + r2,
         function(res) {
-            ////console.log("got reply");
-            ////console.log(res);
+            //console.log("got reply");
+            //console.log(res);
             var status = res.status;
             //console.log(status);
             if (status === "OK") {
@@ -506,6 +398,70 @@ function setFormDataAjax(name,email,r1,r2){
     );   
  }
 
+// http://theycallmecarl.com/mrhs93/getData.php
+function LoadParticipantData() {
+    $.getJSON('http://theycallmecarl.com/mrhs93/getData.php?callback=?', null ,
+        function(res) {
+            //console.log("got reply");
+            //console.log(res);
+            
+            if (res){
+                if (res.names){
+                    names = res.names;
+                    //alert("loaded names");
+                }
+                if (res.people){
+                    people = res.people;
+                    //alert("loaded people");
+                }
+            }
+            
+            
+             /*
+                Autocomplete
+             */
+            Array.prototype.vlookup = function(needle,index){
+                index = index || 0;
+            
+                for (var i = 0; i < this.length; i++){
+                    var row = this[i];
+                    
+                    if (row[0]===needle)
+                        return (index < row.length ? row[index] : row);
+                }
+                return null;
+            }
+            
+            /*
+            Array.prototype.vlookup = function(needle,index,exactmatch){
+                index = index || 0;
+                exactmatch = exactmatch || false;
+                for (var i = 0; i < this.length; i++){
+                    var row = this[i];
+                    
+                    if ((exactmatch && row[0]===needle) || row[0].indexOf(needle) != -1)
+                        return (index < row.length ? row[index] : row);
+                }
+                return null;
+            }
+            */
+        
+             
+            $(function(){ 
+                
+                $( "#name" ).autocomplete({
+                  source: names ,
+                  close: 
+                    function(event,ui) {
+                        getKey();
+                    }
+                  
+                }); 
+            })            
+
+    });     
+    
+}
  
  
 var people = [ 
@@ -585,6 +541,88 @@ var people = [
 	['Chriss Todd',1623538],
 	['Michael Albright',6263029],
 	['Chris Wildman',7444535],
-	['Jason Grimaldi',8433590]
+	['Jason Grimaldi',8433590],
+    ['Jason Zapka',123490857],
+    ['Stacie Tillery',2349085]
 ];
 
+
+
+        var names = ["April Anderson",
+            "Jeffery Barton",
+            "Chris Bordonaro",
+            "Daniel Berndt",
+            "Andrea (Apisa) Dilts",
+            "Tami Burkhart",
+            "Darrell Booker",
+            "Irene Burns",
+            "Jesse Butler",
+            "Dawn Centofanti",
+            "Daniel Calko",
+            "Joseph Butcher",
+            "Amy Cozadd",
+            "Lyle Carpenter",
+            "Angela (Cramer) Ciarniello",
+            "Daniel DiRando",
+            "James Dowdy",
+            "Christopher Dickenson",
+            "Nathan Crocker",
+            "Stacie (Donchatz) Gerberry",
+            "Melissa Duttle",
+            "Alessandro Ferone",
+            "Melanie Gogle",
+            "Megan Garris",
+            "Stephanie Fortner",
+            "Jeffrey Fisher",
+            "Craig Hamer",
+            "Christine Gartner",
+            "Richard Heltebran",
+            "Teresa (Hernandez) Bott",
+            "Kristy Holdash",
+            "Mark Hixson",
+            "Bernard Herbert",
+            "Joseph Hladiuk",
+            "Darren Hood",
+            "John Jarman",
+            "Theresa (Hopper) Gearheart",
+            "Julie Ladd",
+            "Michelle Kokoski",
+            "Shannyn Leake",
+            "Neil Huda",
+            "Melanie Kovach",
+            "Patricia (Lowery) Collins",
+            "Jerome McConnell",
+            "Christopher Mikovich",
+            "Ace McBride",
+            "Daniel McElhaney",
+            "Patricia (Miller) Scott",
+            "Brian Merkich",
+            "Diana Molina",
+            "Jonathan Morgan",
+            "Joielle Nutter",
+            "Rodney Polling",
+            "Michael Monroe",
+            "Michael Raub",
+            "Michelle (Oliver) Pounds",
+            "Jason Reese",
+            "Jennifer Russell",
+            "Chalet Seidel",
+            "Edward Sallustio",
+            "Kara (Stoddard) Calderon",
+            "Robert Samuels",
+            "Christopher Rose",
+            "Otto Stohmeyer",
+            "Carl Tracy",
+            "Teresa (Ward) Langley",
+            "Lynnette Sanders",
+            "Stephanie Torksy",
+            "Amy Whittaker",
+            "Ann (Walton) Mannix",
+            "Eric Wiscott",
+            "Jason (Wodagaza) Beckham",
+            "Scott Zembower",
+            "Chriss Todd",
+            "Michael Albright",
+            "Chris Wildman",
+            "Jason Grimaldi"
+            ,"Jason Zapka"];
