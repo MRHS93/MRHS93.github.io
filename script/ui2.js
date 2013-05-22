@@ -540,7 +540,9 @@ var people = [
 	['Chriss Todd',1623538],
 	['Michael Albright',6263029],
 	['Chris Wildman',7444535],
-	['Jason Grimaldi',8433590]
+	['Jason Grimaldi',8433590],
+    ['Jason Zapka',123490857],
+    ['Stacie Tillery',2349085]
 ];
 
 
@@ -621,4 +623,5 @@ var people = [
             "Chriss Todd",
             "Michael Albright",
             "Chris Wildman",
-            "Jason Grimaldi"];
+            "Jason Grimaldi"
+            ,"Jason Zapka"];
