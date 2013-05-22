@@ -271,48 +271,6 @@ function setupEventHandlers(){
 	
 	);
     
-
-     /*
-        Autocomplete
-     */
-Array.prototype.vlookup = function(needle,index){
-    index = index || 0;
-
-    for (var i = 0; i < this.length; i++){
-        var row = this[i];
-        
-        if (row[0]===needle)
-            return (index < row.length ? row[index] : row);
-    }
-    return null;
-}
-
-/*
-Array.prototype.vlookup = function(needle,index,exactmatch){
-    index = index || 0;
-    exactmatch = exactmatch || false;
-    for (var i = 0; i < this.length; i++){
-        var row = this[i];
-        
-        if ((exactmatch && row[0]===needle) || row[0].indexOf(needle) != -1)
-            return (index < row.length ? row[index] : row);
-    }
-    return null;
-}
-*/
-
-     
-    $(function(){ 
-        
-        $( "#name" ).autocomplete({
-          source: names ,
-          close: 
-            function(event,ui) {
-                getKey();
-            }
-          
-        }); 
-    })
         
  }
  
@@ -457,6 +415,49 @@ function LoadParticipantData() {
                     //alert("loaded people");
                 }
             }
+            
+            
+             /*
+                Autocomplete
+             */
+            Array.prototype.vlookup = function(needle,index){
+                index = index || 0;
+            
+                for (var i = 0; i < this.length; i++){
+                    var row = this[i];
+                    
+                    if (row[0]===needle)
+                        return (index < row.length ? row[index] : row);
+                }
+                return null;
+            }
+            
+            /*
+            Array.prototype.vlookup = function(needle,index,exactmatch){
+                index = index || 0;
+                exactmatch = exactmatch || false;
+                for (var i = 0; i < this.length; i++){
+                    var row = this[i];
+                    
+                    if ((exactmatch && row[0]===needle) || row[0].indexOf(needle) != -1)
+                        return (index < row.length ? row[index] : row);
+                }
+                return null;
+            }
+            */
+        
+             
+            $(function(){ 
+                
+                $( "#name" ).autocomplete({
+                  source: names ,
+                  close: 
+                    function(event,ui) {
+                        getKey();
+                    }
+                  
+                }); 
+            })            
 
     });     
     
