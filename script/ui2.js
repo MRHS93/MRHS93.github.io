@@ -204,6 +204,8 @@ if (jQuery) {
             }
             
             checkKeyOnLoad();
+            
+            LoadParticipantData();
         } 
     );
  }
@@ -438,6 +440,27 @@ function setFormDataAjax(name,email,r1,r2){
     );   
  }
 
+// http://theycallmecarl.com/mrhs93/getData.php
+function LoadParticipantData() {
+    $.getJSON('http://theycallmecarl.com/mrhs93/getData.php?callback=?', null ,
+        function(res) {
+            //console.log("got reply");
+            //console.log(res);
+            
+            if (res){
+                if (res.names){
+                    names = res.names;
+                    alert("loaded names");
+                }
+                if (res.people){
+                    people = res.people;
+                    alert("loaded people");
+                }
+            }
+
+    });     
+    
+}
  
  
 var people = [ 
@@ -520,7 +543,7 @@ var people = [
 	['Jason Grimaldi',8433590]
 ];
 
-// http://theycallmecarl.com/mrhs93/getData.php
+
 
         var names = ["April Anderson",
             "Jeffery Barton",
